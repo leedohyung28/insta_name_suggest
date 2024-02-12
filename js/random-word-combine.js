@@ -1,7 +1,9 @@
 function addDropdownButtons() {
     var dropdownArea = document.querySelector('.featured-section .container .row');
-    dropdownArea.innerHTML = '';  // dropdownArea의 내용 초기화
-
+    dropdownArea.innerHTML = `
+    `; // dropdownArea의 내용 초기화
+    dropdownArea.style.justifyContent = '';
+    
     var title = document.createElement('h6');
     title.innerText = '조합할 단어를 선택해주세요';
     title.style.color = 'white';
@@ -76,6 +78,7 @@ function addDropdownButtons() {
 
     var plusText = document.createElement('span');
     plusText.innerText = '+';
+    plusText.style.color = 'var(--white-color)';
     plusText.style.margin = '0 10px';
 
     var submitButton = document.createElement('button');
@@ -93,6 +96,7 @@ function addDropdownButtons() {
     buttonDiv.appendChild(dropdownDiv);
 
     dropdownArea.appendChild(buttonDiv);
+    
 
     var positiveWords = [
         ['aromatic', 'aromatic: 향이 좋은'],
@@ -353,7 +357,21 @@ function addDropdownButtons() {
     
     submitButton.addEventListener('click', function(event) {
         event.preventDefault(); // 페이지 새로고침 방지
-        var containers = document.querySelectorAll('.row.justify-content-center .col-lg-4.col-12.mb-4.mb-lg-0');
+
+        var oldDescrip = document.querySelector('.description-container');
+        if (oldDescrip) {
+            oldDescrip.remove();
+        }
+        var descrip = document.createElement('div')
+        descrip.className = 'description-container';
+        descrip.innerHTML = `
+        <p class="description">원하는 단어의 주제를 선택하고 Generate를 눌러주세요.</p>
+        <p class="description">Generate를 누를 때 마다 랜덤으로 새로운 조합이 나옵니다.</p>
+        <p class="warning" style="margin-bottom:1vh;">단어 고정을 선택하면 해당 단어는 바뀌지 않습니다.</p>
+        <p class="description-select" style="margin-bottom:2.5vh;">Copy를 누르면 해당 닉네임을 복사할 수 있습니다.</p>
+        `;
+
+        var containers = document.querySelectorAll('.row.justify-content-left .col-lg-4.col-12.mb-4.mb-lg-0');
         containers.forEach(function(container) {
             container.remove();
         }); // 기존의 container 삭제    
@@ -388,33 +406,33 @@ function addDropdownButtons() {
             <div class="d-flex">
                 <div>
                     <div class="d-flex justify-content-start align-items-start">
-                    <h6 style="font-size:1vmax; color:red;">단어 고정</h6>
+                    <h6 style="font-size:1vmax; color:red; white-space:nowrap;">단어 고정</h6>
                     <input type="checkbox" id="checkbox1" style="margin-right:10px; margin-left:2px;" ${isCheckbox1Checked ? 'checked' : ''}>
                         <h5 class="mb-2" style="color:red;">※ ${firstDetail}</h5>
                     </div>
                     <div class="d-flex justify-content-start align-items-start">
-                    <h6 style="font-size:1vmax; color:blue;">단어 고정</h6>
+                    <h6 style="font-size:1vmax; color:blue; white-space:nowrap;">단어 고정</h6>
                     <input type="checkbox" id="checkbox2" style="margin-right:10px; margin-left:2px;" ${isCheckbox2Checked ? 'checked' : ''}>
                         <h5 class="mb-2" style="color:blue;">※ ${secondDetail}</h5>
                     </div>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
                         <p class="mb-0">@${wordsCombine1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
                         <p class="mb-0">@${wordsCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
                         <p class="mb-0">@${wordsCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div> 
@@ -422,12 +440,13 @@ function addDropdownButtons() {
             </div>
         </div>
     `;
-    document.querySelector('.row.justify-content-center').appendChild(wordsCombineContainer);
+    document.querySelector('.row.justify-content-left').appendChild(descrip);
+    document.querySelector('.row.justify-content-left').appendChild(wordsCombineContainer);
     document.querySelectorAll('.copy-button').forEach(function(button) {
         button.addEventListener('click', async function(event) {
             var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
-            await navigator.clipboard.writeText(textToCopy);
-            alert('복사되었습니다');
+            await navigator.clipboard.writeText(textToCopy);    
+            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
         });
     });
 

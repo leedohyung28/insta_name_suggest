@@ -4,30 +4,28 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
-
+        <meta name="description" content="instagram name suggestion">
+        <meta name="author" content="leedohyung28">
         <title>Instagram Name Suggestion - 인스타그램 이름 추천</title>
 
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <style>
+            .keyboard:hover {
+                cursor: pointer;
+            }
+        </style>
+        <map name="image-map">
+            <area target="" onclick="addResult(this.alt)" alt="123qweasd" title="123qweasd" href="" coords="10,4,190,119" shape="rect">
+            <area target="" onclick="addResult(this.alt)" alt="asdzxc" title="asdzxc" href="" coords="8,122,220,186" shape="rect">
+            <area target="" onclick="addResult(this.alt)" alt="456ertydfgh" title="456ertydfgh" href="" coords="192,4,322,120" shape="rect">
+            <area target="" onclick="addResult(this.alt)" alt="fghcvbn" title="fghcvbn" href="" coords="222,122,353,187" shape="rect">
+            <area target="" onclick="addResult(this.alt)" alt="7890yuiophjkl" title="7890yuiophjkl" href="" coords="325,3,530,118" shape="rect">
+            <area target="" onclick="addResult(this.alt)" alt="jklnm" title="jklnm" href="" coords="356,120,530,186" shape="rect">
+        </map>
 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
+        <!-- CSS FILES -->                    
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
         <link href="css/bootstrap-icons.css" rel="stylesheet">
-
         <link href="css/templatemo-topic-listing.css" rel="stylesheet">      
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
     </head>
     
     <body id="top">
@@ -36,41 +34,26 @@ https://templatemo.com/tm-590-topic-listing
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            랜덤으로 만들기</button>
-
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button" onclick="location.href='./index.html'">한글 이름으로 만들기</button></li>
-                                <li><button class="dropdown-item" type="button" onclick="location.href='./eng_name.html'">영문 이름으로 만들기</button></li>
-                                <li><button class="dropdown-item" type="button" onclick="location.href='./birth_info.html'">출생정보로 만들기</button></li>
-                            </ul>
+                        <div class="button-group">
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./index.html'">한글 이름</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./eng_name.html'">영문 이름</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./birth_info.html'">출생정보</button>
+                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./random.html'">랜덤</button>
                         </div>
                         
                         <div class="col-lg-8 col-12 mx-auto">
                             <h1 class="text-white text-center">인스타그램 이름 추천</h1>
-
-                            <h4 class="text-center">Instagram Name Suggestion</h4>
-
                             <h6 class="text-center">랜덤으로 만들기</h6>
+                            <p class="description">원하는 아이디 생성 방법을 선택하세요</p>
 
-                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                                <!-- <div class="input-group input-group-lg">
-                                    <span class="input-group-text bi-search" id="basic-addon1">
-                                        
-                                    </span>
-
-                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="이름 혹은 별명을 입력하시오 (7글자 이내)" aria-label="추천">
-
-                                    <button type="submit" class="form-control">Search</button>
-                                </div> -->
+                            <form method="get" class="custom-form mt-4 mb-lg-0" role="search">
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <button type="button" name="word-combine" class="btn btn-secondary mr-2" onclick="addDropdownButtons()">단어 조합하기</button>
-                                    <button type="button" name="current-time" class="btn btn-secondary mr-2" onclick="combineCurrentTime()">현재 시간 활용하기</button>
-                                    <button type="button" name="beauty-word" class="btn btn-secondary mr-2" onclick="foreignWordChoice()">예쁜 외국어를 사용하기</button>
-                                    <button type="button" name="famous-words" class="btn btn-secondary mr-2" onclick="famousWords()">명언, 가사 인용하기</button>
-                                    <button type="button" name="use-emoticon" class="btn btn-secondary mr-2" onclick="emoticonGenerator()">이모티콘 사용하기</button>
-                                    <button type="button" name="random" class="btn btn-secondary mr-2">주먹으로 키보드 치기(랜덤)</button>
+                                    <button type="button" name="word-combine" class="rand" onclick="addDropdownButtons()">단어 조합하기</button>
+                                    <button type="button" name="current-time" class="rand" onclick="combineCurrentTime()">현재 시간 활용하기</button>
+                                    <button type="button" name="beauty-word" class="rand" onclick="foreignWordChoice()">예쁜 외국어를 사용하기</button>
+                                    <button type="button" name="famous-words" class="rand" onclick="famousWords()">명언, 가사 인용하기</button>
+                                    <button type="button" name="use-emoticon" class="rand" onclick="emoticonGenerator()">이모티콘 사용하기</button>
+                                    <button type="button" name="keyboard" class="rand" onclick="randKeyboard()">주먹으로 키보드 치기(랜덤)</button>
                                 </div>
                             </form>
                         </div>
@@ -81,7 +64,7 @@ https://templatemo.com/tm-590-topic-listing
 
             <section class="featured-section">
                 <div class="container">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-left">
                     </div>
                 </div>
             </section>
@@ -114,15 +97,12 @@ https://templatemo.com/tm-590-topic-listing
             </div>
         </footer>
         <!-- JAVASCRIPT FILES -->
-        <!-- <script src="js/jquery.min.js"></script> -->
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/random-word-combine.js"></script>
         <script src="js/random-current-time.js"></script>
         <script src="js/random-foreign.js"></script>
         <script src="js/random-words.js"></script>
         <script src="js/random-emoticon.js"></script>
-        <!-- <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/custom.js"></script> -->
+        <script src="js/random-keyboard.js"></script>
     </body>
 </html>

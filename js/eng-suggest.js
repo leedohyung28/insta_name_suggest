@@ -7,11 +7,20 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
     }); // 기존의 container 삭제
 
     var firstName = document.querySelector('#firstname').value.toLowerCase(); // 입력 받은 이름
+    var lastName = document.querySelector('#lastname').value.toLowerCase().split(' ').join('');
+
+    var isAlphanumeric = /^[a-z0-9\s]*$/i.test(firstName) && /^[a-z0-9\s]*$/i.test(lastName);
+    var isValidLength = firstName.length <= 20 && lastName.length <= 10;
+
+    if (!isAlphanumeric || !isValidLength) {
+        alert("이름과 성은 영어 각각 20자, 10자 이내의 알파벳(혹은 숫자)로 이루어진 문자열이어야 합니다.");
+        return;
+    }
+
     var nameList = firstName.split(' ');
     var firstNameUnion = nameList.join('');
     var reverseName = firstNameUnion.split('').reverse().join(''); // 이름 거꾸로
-    
-    var lastName = document.querySelector('#lastname').value.toLowerCase().split(' ').join('');
+
 
     var reverseContainer = document.createElement('div');
     reverseContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
@@ -20,10 +29,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">이름을 거꾸로 해보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${reverseName}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${reverseName}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>               
@@ -40,10 +49,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">글자를 숫자로 바꿔보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${withNumName}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${withNumName}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -60,10 +69,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">모음을 x로 바꿔보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${withxName}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${withxName}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -106,10 +115,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">특정 알파벳(${randomReplace.letter})을 늘려보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${multipleName}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${multipleName}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -208,24 +217,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
                 <div>
                     <h5 class="mb-2">예쁜 단어와 성을 합쳐보는건 어때요?</h5>
                     <h6 style="font-size:12px;">※ ${meaning}</h6>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${vocaCombine1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${vocaCombine1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div> 
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${vocaCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${vocaCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div> 
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${vocaCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${vocaCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -246,17 +255,17 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">이름을 기호로 합쳐보는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capFirst1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capFirst1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capFirst2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capFirst2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -284,31 +293,31 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">이름 중 한 글자를 줄여보는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${firstNameCombine1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${firstNameCombine1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${firstNameCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${firstNameCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${firstNameCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${firstNameCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${firstNameCombine4}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${firstNameCombine4}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -346,31 +355,31 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">이름의 첫글자와 성을 합쳐보는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capLastName1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capLastName1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capLastName2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capLastName2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capLastName3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capLastName3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${capLastName4}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${capLastName4}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -628,31 +637,31 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">성을 바꿔서 이름과 합쳐보는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${newLastCombined1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${newLastCombined1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${newLastCombined2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${newLastCombined2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${newLastCombined3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${newLastCombined3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
-                        <p class="mb-0">@${newLastCombined4}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:12px;">@${newLastCombined4}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   

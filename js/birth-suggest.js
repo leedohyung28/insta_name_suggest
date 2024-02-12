@@ -18,6 +18,14 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
     var nameList = name.split(' ');
     var nameUnion = nameList.join('');
 
+    var isAlphanumeric = /^[a-z0-9\s]*$/i.test(nameUnion);
+    var isValidLength = nameUnion.length <= 20;
+
+    if (!isAlphanumeric || !isValidLength) {
+        alert("20자 이내의 알파벳(혹은 숫자)로 이루어진 문자열이어야 합니다.");
+        return;
+    }
+
     var birthdayCombine1 = yearEnd + '.' + month + '.' + day;
     var birthdayCombine2 = yearEnd + '_' + month + '_' + day;
     var birthdayCombine3 = year + '.' + month + '.' + day;
@@ -28,24 +36,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">생년월일을 조합해보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 120%;">
-                        <p class="mb-0">@${birthdayCombine1}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthdayCombine1}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 120%;">
-                        <p class="mb-0">@${birthdayCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthdayCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 120%;">
-                        <p class="mb-0">@${birthdayCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthdayCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>                 
@@ -150,27 +158,27 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">월을 외국어로 바꿔보시는건 어때요?</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${englishBirthday}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${englishBirthday}</p>
                         <p class="mb-1" style="font-size:smaller; width:64px;">(영어)</p>                 
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${frenchBirthday}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${frenchBirthday}</p>
                         <p class="mb-1" style="font-size:smaller; width:64px;">(프랑스어)</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${espanolBirthday}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${espanolBirthday}</p>
                         <p class="mb-1" style="font-size:smaller; width:64px;">(스페인어)</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>                 
@@ -185,7 +193,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
             // var textToCopy = event.target.previousElementSibling.innerText.slice(1);
             await navigator.clipboard.writeText(textToCopy);
-            alert('복사되었습니다');
+            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
         });
     });
 
@@ -200,24 +208,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
                 <div>
                     <h5 class="mb-2">탄생석을 이용해보는건 어때요?</h5>
                     <h6 style="font-size:12px;">※ ${detailsStone}</h6>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${stoneCombine1}</p>                
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine1}</p>                
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${stoneCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${stoneCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>                 
@@ -248,24 +256,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">생일과 이름을 조합해보는건 어때요??</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${birthNameCombine1}</p>                
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthNameCombine1}</p>                
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${birthNameCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthNameCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${birthNameCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${birthNameCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -287,24 +295,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">나이와 이름을 조합해보는건 어때요??</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${ageNameCombine1}</p>                
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${ageNameCombine1}</p>                
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${ageNameCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${ageNameCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${ageNameCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${ageNameCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
@@ -324,24 +332,24 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             <div class="d-flex">
                 <div>
                     <h5 class="mb-2">생년월일과 이름을 조합해보는건 어때요??</h5>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${nameBirthCombine1}</p>                
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${nameBirthCombine1}</p>                
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${nameBirthCombine2}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${nameBirthCombine2}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 110%;">
-                        <p class="mb-0">@${nameBirthCombine3}</p>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${nameBirthCombine3}</p>
                         <button type="copy" class="copy-button">
-                            <i class="bi bi-share"></i>
+                            <i class="bi bi-files"></i>
                             Copy
                         </button>
                     </div>   
