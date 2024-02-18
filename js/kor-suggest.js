@@ -68,7 +68,7 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                 let response = await fetch(`https://port-0-insta-name-suggest-abq3c52alsd1wikh.sel5.cloudtype.app/translate?text=${encodeURIComponent(name)}`);
                 let translatedText = await response.text();
                 let processedText = translatedText.toLowerCase().replace(/a /g, '').replace(/the /g, '').replace(/an /g, '');
-                processedText = processedText.replace(/\s/g, '').replace(/-/g, '').replace(/,/g, '');
+                processedText = processedText.replace(/\s/g, '').replace(/-/g, '').replace(/,/g, '').replace(/'/g, '');
                 translatedNames.push(processedText);
                 if (name in replaceWords) {
                     processedText = replaceWords[name];

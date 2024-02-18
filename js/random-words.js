@@ -13,11 +13,11 @@ function famousWords() {
     wordsSelectArea.innerHTML = `
     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-1" role="search">
         <div class="input-group input-group-lg">
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.5vmax;")>영화 대사</button>
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.5vmax;")>속담, 명언, 문구</button>
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.5vmax;")>노래 제목, 가사</button>
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.5vmax;")>영어 줄임말</button>
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.5vmax;")>신조어</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>영화</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>명언</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>노래</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>Slang</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>신조어</button>
         </div>
     </form>
     `;

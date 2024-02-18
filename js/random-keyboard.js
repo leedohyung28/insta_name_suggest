@@ -53,7 +53,7 @@ function randKeyboard() {
 
     `;
     dropdownArea.appendChild(form);
-    result = '@' + result;
+    result = '@';
     document.getElementById('result').value = result;
 
     document.getElementById('copyButton').addEventListener('click', function(){

@@ -144,9 +144,9 @@ strong {
 /*---------------------------------------
   SECTION               
 -----------------------------------------*/
-.section-padding {
+/* .section-padding {
   padding-bottom: 10vh;
-}
+} */
 
 .section-bg {
   background-color: var(--section-bg-color);
