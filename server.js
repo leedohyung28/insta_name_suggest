@@ -5,8 +5,8 @@ var port = 8080;
 app.use(cors());
 app.use(express.json());
 
-var client_id = 'mQOngzn0qYwWAz6rkyYB';
-var client_secret = 'aTBM0q47qQ';
+var client_id = process.env.ppg_client_id;
+var client_secret = process.env.ppg_client_secret;
 app.get('/translate', function (req, res) {
     var query = req.query.text;
     var api_url = 'https://openapi.naver.com/v1/papago/n2mt';

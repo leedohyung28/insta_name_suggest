@@ -91,7 +91,7 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                 powered.className = 'powered';
                 powered.innerHTML = `
                 <p style="color:var(--white-color); margin-bottom:0px; margin-right:1.5vw;">Powered By</p>
-                <img src="https://i.namu.wiki/i/DpAR8McD4nZYUxTOcp4quTwp54KvjsmWJYC64WsPmk9f_2AOf_J2RkREm-cvvRim8_HnDzu1HTK55RQlCTAzzTh31eQcswP-WjD1OOyq72hD31_m-7P1zs4MRscf8nDxz6_oN4JmCvMjqqJ61_kjeQ.svg" style="height: 3.5vh; width: auto;">
+                <img src="https://papago.naver.com/97ec80a681e94540414daf2fb855ba3b.svg" style="height: 3.5vh; width: auto;">
                 `;
                 document.querySelector('.row.justify-content-center').appendChild(powered);
             }

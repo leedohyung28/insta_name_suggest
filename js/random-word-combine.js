@@ -406,12 +406,12 @@ function addDropdownButtons() {
             <div class="d-flex">
                 <div>
                     <div class="d-flex justify-content-start align-items-start">
-                    <h6 style="font-size:1vmax; color:red; white-space:nowrap;">단어 고정</h6>
+                    <h6 class="voca-fix-red">단어 고정</h6>
                     <input type="checkbox" id="checkbox1" style="margin-right:10px; margin-left:2px;" ${isCheckbox1Checked ? 'checked' : ''}>
                         <h5 class="mb-2" style="color:red;">※ ${firstDetail}</h5>
                     </div>
                     <div class="d-flex justify-content-start align-items-start">
-                    <h6 style="font-size:1vmax; color:blue; white-space:nowrap;">단어 고정</h6>
+                    <h6 class="voca-fix-blue">단어 고정</h6>
                     <input type="checkbox" id="checkbox2" style="margin-right:10px; margin-left:2px;" ${isCheckbox2Checked ? 'checked' : ''}>
                         <h5 class="mb-2" style="color:blue;">※ ${secondDetail}</h5>
                     </div>

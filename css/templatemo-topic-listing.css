@@ -24,6 +24,7 @@
   --instagram-red-color:          #F41F28;
   --instagram-purple-color:       #8839AE;
 
+  --date-word-color :             #9b9b9b;
 
 
 
@@ -285,7 +286,6 @@ strong {
   background-color: var(--dark-color);
   position: relative;
   overflow: hidden;
-  padding-top: 50px;
   padding-bottom: 150px;
 }
 
@@ -412,13 +412,6 @@ body p[class="warning"] {
   border-color: transparent;
 }
 
-.hero-section #date:not(:valid):before {
-  content: '생년월일';
-  margin-right: .6em;
-  font-size: smaller;
-  white-space: nowrap;
-}
-
 .mb-2 {
   width: 250px
 }
@@ -456,6 +449,18 @@ body p[class="warning"] {
 
 .featured-section h5 {
   font-size: 0.8rem;
+}
+
+.featured-section h6[class="voca-fix-red"] {
+  font-size:0.65vw; 
+  color:red; 
+  white-space:nowrap;
+}
+
+.featured-section h6[class="voca-fix-blue"] {
+  font-size:0.65vw; 
+  color: blue; 
+  white-space:nowrap;
 }
 
 button[class="copy-button"] {
@@ -876,7 +881,7 @@ blockquote {
   border-radius: var(--border-radius-large);
   color: var(--white-color);
   font-family: var(--title-font-family);
-  font-size: 1.6vmax;
+  font-size: 1vmax;
   font-weight: var(--font-weight-semibold);
   transition: all 0.3s;
   margin-bottom: 0;
@@ -990,7 +995,6 @@ blockquote {
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
-  border-bottom: 10px solid var(--dark-color);
   position: relative;
 }
 
@@ -1201,9 +1205,32 @@ blockquote {
     font-size: 1.8vmax;
   }
 
+  .custom-form button[id="Generate"] {
+    font-size: 2.5vw;
+  }  
+
   .featured-section input[name="additionalName"] {
     font-size: 2.5vw;
   }
+
+  .featured-section h6[class="voca-fix-red"] {
+    font-size:2.5vw; 
+  }
+  
+  .featured-section h6[class="voca-fix-blue"] {
+    font-size:2.5vw;
+  }
+
+  .hero-section #date:not(:valid):before {
+    content: '생년월일';
+    color: var(--date-word-color);
+    display: inline;
+    position: absolute;
+    pointer-events: none;
+    font-size: smaller;
+    white-space: nowrap;
+  }
+
   body p[class="description"] {
     color: var(--instagram-yellow-color);
     font-size: 2.5vw;
