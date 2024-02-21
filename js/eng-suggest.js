@@ -679,7 +679,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         button.addEventListener('click', async function(event) {
             var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
             await navigator.clipboard.writeText(textToCopy);
-            alert('복사되었습니다');
+            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
         });
     });
 });

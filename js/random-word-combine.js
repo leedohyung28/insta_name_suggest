@@ -111,7 +111,7 @@ function addDropdownButtons() {
         ['radiant', 'radiant: 빛나는'],
         ['serendipity', 'serendipity: 우연'],
         ['sonorous', 'sonorous: 듣기 좋은'],
-        ['xabadu', 'xabadu: 이상향의 공간'],
+        ['xanadu', 'xanadu: 이상향의 공간'],
         ['zest', 'zest: 열정'],
         ['bliss', 'bliss: 행복'],
         ['joy', 'joy: 기쁨'],
@@ -150,7 +150,7 @@ function addDropdownButtons() {
     ];
     var personality = [
         ['adorable', 'adorable: 사랑스러운'],
-        ['alturistic', 'alturistic: 이타적인'],
+        ['altruistic', 'altruistic: 이타적인'],
         ['bijou', 'bijou: 아담한'],
         ['brilliant', 'brilliant: 똑똑한'],
         ['cheery', 'cheery: 쾌활한'],
@@ -169,7 +169,7 @@ function addDropdownButtons() {
         ['whimsical', 'whimsical: 엉뚱한'],
         ['winsome', 'winsome: 매력적인'],
         ['witty', 'witty: 발랄한'],
-        ['charming', 'charming: 매력저인'],
+        ['charming', 'charming: 매력적인'],
         ['beautiful', 'beautiful: 예쁜'],
     ];
     var naturalWords = [
@@ -315,7 +315,7 @@ function addDropdownButtons() {
         ['rapunzel', 'rapunzel : 라푼젤'],
         ['elsa', 'elsa : 엘사 (겨울왕국)'],
         ['anna', 'anna : 안나 (겨울왕국)'],
-        ['micky', 'micky : 미키마우스'],
+        ['mickey', 'mickey : 미키마우스'],
         ['minnie', 'minnie : 미니마우스'],
         ['mario', 'mario : 마리오'],
         ['miffy', 'miffy : 미피'],

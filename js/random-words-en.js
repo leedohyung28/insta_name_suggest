@@ -4,7 +4,7 @@ function famousWords() {
     dropdownArea.style.justifyContent = '';
 
     var title = document.createElement('h6');
-    title.innerText = '종류를 선택하세요';
+    title.innerText = 'Choose the type';
     title.style.color = 'white';
     title.style.textAlign = 'center';
     dropdownArea.appendChild(title);
@@ -13,9 +13,9 @@ function famousWords() {
     wordsSelectArea.innerHTML = `
     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-1" role="search">
         <div class="input-group input-group-lg">
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>영화</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>Movie</button>
             <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>명언</button>
-            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>노래</button>
+            <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>Song</button>
             <button id="wordButton" type="button" class="form-control" style="font-size: 1.3vmax;")>Slang</button>
         </div>
     </form>

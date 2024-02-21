@@ -372,6 +372,7 @@ body p[class="warning"] {
 }
 
 .hero-section .button-group {
+  margin-top: 3vh;
   margin-bottom: 2vh;
   display: flex;
   justify-content: space-around;
@@ -427,11 +428,6 @@ body p[class="warning"] {
   font-size: 1.2vmax;
 }
 
-.featured-section .new-custom-block {
-  width: 60vw;
-  display: flex;
-}
-
 /*---------------------------------------
   TOPICS              
 -----------------------------------------*/
@@ -462,6 +458,18 @@ body p[class="warning"] {
   color: blue; 
   white-space:nowrap;
 }
+
+
+.featured-section .new-custom-block {
+  width: 60vw;
+  display: flex;
+}
+
+.featured-section img[class="min-keyboard"] {
+  width: 100%;
+  height: auto;
+}
+
 
 button[class="copy-button"] {
   background-color: var(--custom-btn-bg-color);
@@ -995,7 +1003,9 @@ blockquote {
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
+  margin-top: 3vh;
   position: relative;
+  color: var(--white-color);
 }
 
 .site-footer::after {
@@ -1013,10 +1023,6 @@ blockquote {
 
 .site-footer-title {
   color: var(--primary-color); 
-}
-
-.site-footer {
-  color: var(--white-color);
 }
 
 .site-footer .dropdown-menu {
@@ -1156,7 +1162,7 @@ blockquote {
   .timeline-container .vertical-scrollable-timeline li {
     padding-left: 135px;
   }
-
+  
   .subscribe-form-wrap {
     padding-top: 30px;
     padding-bottom: 0;
@@ -1223,6 +1229,16 @@ blockquote {
 
   .hero-section #date:not(:valid):before {
     content: '생년월일';
+    color: var(--date-word-color);
+    display: inline;
+    position: absolute;
+    pointer-events: none;
+    font-size: smaller;
+    white-space: nowrap;
+  }
+
+  .hero-section #date_english:not(:valid):before {
+    content: 'Birthday';
     color: var(--date-word-color);
     display: inline;
     position: absolute;

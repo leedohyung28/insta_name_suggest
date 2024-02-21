@@ -6,7 +6,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         container.remove();
     }); // 기존의 container 삭제
     
-    var dateInput = document.querySelector('#date').value;
+    var dateInput = document.querySelector('#date_english').value;
     var date = new Date(dateInput);
     var year = date.getFullYear();
     var monthOrigin = date.getMonth()+1;
@@ -19,10 +19,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
     var nameUnion = nameList.join('');
 
     var isAlphanumeric = /^[a-z0-9\s]*$/i.test(nameUnion);
-    var isValidLength = nameUnion.length <= 20;
+    var isValidLength = nameUnion.length <= 15;
 
     if (!isAlphanumeric || !isValidLength) {
-        alert("20자 이내의 알파벳(혹은 숫자)로 이루어진 문자열이어야 합니다.");
+        alert("Character must be 15 characters or less.");
         return;
     }
 
@@ -35,7 +35,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">생년월일을 조합해보시는건 어때요?</h5>
+                    <h5 class="mb-2">Combine your birthday!</h5>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${birthdayCombine1}</p>
                         <button type="copy" class="copy-button">
@@ -120,18 +120,18 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         '12' : 'turquoise',
     }
     var stoneDetails = {
-        '01' : '1월 - 석류석(Garnet): 사랑, 진실',
-        '02' : '2월 - 자수정(Amethyst): 성실, 평화',
-        '03' : '3월 - 아쿠아마린(Aquamarine): 용감, 총명',
-        '04' : '4월 - 다이아몬드(Diamond): 행복, 영원한 사랑',
-        '05' : '5월 - 에메랄드(Emerald): 행복, 행운',
-        '06' : '6월 - 진주(Pearl): 아름다움, 순결',
-        '07' : '7월 - 루비(Ruby): 열정, 사랑',
-        '08' : '8월 - 오닉스(Onyx): 지혜, 희망',
-        '09' : '9월 - 사파이어(Sapphire): 성실, 진실',
-        '10' : '10월 - 오팔(Opal): 사랑, 희망',
-        '11' : '11월 - 황옥(Topaz): 인내, 건강',
-        '12' : '12월 - 터키석(Turquoise): 성공, 승리'
+        '01' : 'January - Garnet : Love, Truth',
+        '02' : 'February - Amethyst : Sincerity, Peace',
+        '03' : 'March - Aquamarine : Bravery, Intelligence',
+        '04' : 'April - Diamond : Victory, Eternal love ',
+        '05' : 'May - Emerald : Happy, Luck',
+        '06' : 'June - Pearl : Beauty, Chastity',
+        '07' : 'July - Ruby : Passion, Love',
+        '08' : 'August - Onyx : Wise, Hope',
+        '09' : 'September - Sapphire : Fidelity, Truth',
+        '10' : 'October - Opal : Love, Hope',
+        '11' : 'November - Topaz : Patience, Healthy',
+        '12' : 'December - Turquoise: Success, Victory'
     }
     var numToAlphabet = {
         '0' : 'p',
@@ -145,15 +145,6 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         '8' : 'i',
         '9' : 'o',
     }
-    var alphabetYear = String(year).split('').map(function(num){
-        return numToAlphabet[num];
-    }).join('');
-    var alphabetMonth = String(month).split('').map(function(num){
-        return numToAlphabet[num];
-    }).join('');
-    var alphabetDay = String(day).split('').map(function(num){
-        return numToAlphabet[num];
-    }).join('');
 
     var englishMonth = '';
     var frenchMonth = '';
@@ -179,10 +170,10 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">월을 외국어로 바꿔보시는건 어때요?</h5>
+                    <h5 class="mb-2">Replace a month with languages!</h5>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${englishBirthday}</p>
-                        <p class="mb-1" style="font-size:smaller; width:64px;">(영어)</p>                 
+                        <p class="mb-1" style="font-size:smaller; width:64px;">(English)</p>                 
                         <button type="copy" class="copy-button">
                             <i class="bi bi-files"></i>
                             Copy
@@ -190,7 +181,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
                     </div>   
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${frenchBirthday}</p>
-                        <p class="mb-1" style="font-size:smaller; width:64px;">(프랑스어)</p>
+                        <p class="mb-1" style="font-size:smaller; width:64px;">(French)</p>
                         <button type="copy" class="copy-button">
                             <i class="bi bi-files"></i>
                             Copy
@@ -198,7 +189,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
                     </div>   
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${espanolBirthday}</p>
-                        <p class="mb-1" style="font-size:smaller; width:64px;">(스페인어)</p>
+                        <p class="mb-1" style="font-size:smaller; width:64px;">(Spanish)</p>
                         <button type="copy" class="copy-button">
                             <i class="bi bi-files"></i>
                             Copy
@@ -210,52 +201,15 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
     `;
     document.querySelector('.row.justify-content-center').appendChild(monthdayContiner);
 
-    // document.querySelectorAll('.copy-button').forEach(function(button) {
-    //     button.addEventListener('click', async function(event) {
-    //         var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
-    //         // var textToCopy = event.target.previousElementSibling.innerText.slice(1);
-    //         await navigator.clipboard.writeText(textToCopy);
-    //         alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
-    //     });
-    // });
-
-    var stoneCombine1 = year + '.' + stoneMonth;
-    var stoneCombine2 = yearEnd + '_' + stoneMonth;
-    var stoneCombine3 = stoneMonth + '_' + day;
-    var stoneContainer = document.createElement('div');
-    stoneContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-    stoneContainer.innerHTML = `
-        <div class="custom-block bg-white shadow-lg">
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-2">탄생석을 이용해보는건 어때요?</h5>
-                    <h6 style="font-size:12px;">※ ${detailsStone}</h6>
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${stoneCombine1}</p>                
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${stoneCombine2}</p>
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${stoneCombine3}</p>
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>                 
-                </div>
-            </div>
-        </div>
-    `;
-    document.querySelector('.row.justify-content-center').appendChild(stoneContainer);
+    var alphabetYear = String(year).split('').map(function(num){
+        return numToAlphabet[num];
+    }).join('');
+    var alphabetMonth = String(month).split('').map(function(num){
+        return numToAlphabet[num];
+    }).join('');
+    var alphabetDay = String(day).split('').map(function(num){
+        return numToAlphabet[num];
+    }).join('');
 
     var alphabetCombine1 = alphabetYear + alphabetMonth + alphabetDay;
     var alphabetCombine2 = alphabetYear + '.' + alphabetMonth + '.' + alphabetDay;
@@ -268,7 +222,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">숫자를 키보드 기준 자판으로 바꿔보시는건 어때요?</h5>
+                    <h5 class="mb-2">Make number of birthday to alphabet!</h5>
                     <img class="min-keyboard" src="./images/keyboard-min.jpg">
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${alphabetCombine1}</p>                
@@ -311,6 +265,44 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
     `;
     document.querySelector('.row.justify-content-center').appendChild(alphabetContainer);
 
+    var stoneCombine1 = year + '.' + stoneMonth;
+    var stoneCombine2 = yearEnd + '_' + stoneMonth;
+    var stoneCombine3 = stoneMonth + '_' + day;
+    var stoneContainer = document.createElement('div');
+    stoneContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+    stoneContainer.innerHTML = `
+        <div class="custom-block bg-white shadow-lg">
+            <div class="d-flex">
+                <div>
+                    <h5 class="mb-2">Use the birth stone!</h5>
+                    <h6 style="font-size:12px;">※ ${detailsStone}</h6>
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine1}</p>                
+                        <button type="copy" class="copy-button">
+                            <i class="bi bi-files"></i>
+                            Copy
+                        </button>
+                    </div>   
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine2}</p>
+                        <button type="copy" class="copy-button">
+                            <i class="bi bi-files"></i>
+                            Copy
+                        </button>
+                    </div>   
+                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                        <p class="mb-0" style="font-size:14px;">@${stoneCombine3}</p>
+                        <button type="copy" class="copy-button">
+                            <i class="bi bi-files"></i>
+                            Copy
+                        </button>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    `;
+    document.querySelector('.row.justify-content-center').appendChild(stoneContainer);
+
     if(name) {
         var newName1 = nameUnion[0];
         var newName2 = nameUnion[0];
@@ -331,7 +323,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">생일과 이름을 조합해보는건 어때요?</h5>
+                    <h5 class="mb-2">Combine birthday and name!</h5>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${birthNameCombine1}</p>                
                         <button type="copy" class="copy-button">
@@ -370,7 +362,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">나이와 이름을 조합해보는건 어때요?</h5>
+                    <h5 class="mb-2">Combine age and name!</h5>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${ageNameCombine1}</p>                
                         <button type="copy" class="copy-button">
@@ -407,7 +399,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         <div class="custom-block bg-white shadow-lg">
             <div class="d-flex">
                 <div>
-                    <h5 class="mb-2">생년월일과 이름을 조합해보는건 어때요??</h5>
+                    <h5 class="mb-2">Combine birthday and name!</h5>
                     <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
                         <p class="mb-0" style="font-size:14px;">@${nameBirthCombine1}</p>                
                         <button type="copy" class="copy-button">
@@ -435,50 +427,50 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
         `;
         document.querySelector('.row.justify-content-center').appendChild(nameBirthContainer);
 
-    var alphabetNameCombine1 = nameUnion + '.' + alphabetYear + alphabetMonth + alphabetDay;
-    var alphabetNameCombine2 = nameUnion + '_' + alphabetYear + alphabetMonth + alphabetDay;
-    var alphabetNameCombine3 = nameUnion + '.' + alphabetMonth + alphabetDay;
-    var alphabetNameCombine4 = nameUnion + '_' + alphabetMonth + alphabetDay;
-    var alphabetNameContainer = document.createElement('div');
-    alphabetNameContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-    alphabetNameContainer.innerHTML = `
-        <div class="custom-block bg-white shadow-lg">
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-2">숫자를 키보드 기준 자판으로 바꿔보시는건 어때요?</h5>
-                    <img class="min-keyboard" src="./images/keyboard-min.jpg">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine1}</p>                
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine2}</p>
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>   
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine3}</p>
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>
-                    </div>     
-                    <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
-                        <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine4}</p>
-                        <button type="copy" class="copy-button">
-                            <i class="bi bi-files"></i>
-                            Copy
-                        </button>              
+        var alphabetNameCombine1 = nameUnion + '.' + alphabetYear + alphabetMonth + alphabetDay;
+        var alphabetNameCombine2 = nameUnion + '_' + alphabetYear + alphabetMonth + alphabetDay;
+        var alphabetNameCombine3 = nameUnion + '.' + alphabetMonth + alphabetDay;
+        var alphabetNameCombine4 = nameUnion + '_' + alphabetMonth + alphabetDay;
+        var alphabetNameContainer = document.createElement('div');
+        alphabetNameContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+        alphabetNameContainer.innerHTML = `
+            <div class="custom-block bg-white shadow-lg">
+                <div class="d-flex">
+                    <div>
+                        <h5 class="mb-2">Make number of birthday to alphabet with name!</h5>
+                        <img class="min-keyboard" src="./images/keyboard-min.jpg">
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                            <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine1}</p>                
+                            <button type="copy" class="copy-button">
+                                <i class="bi bi-files"></i>
+                                Copy
+                            </button>
+                        </div>   
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                            <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine2}</p>
+                            <button type="copy" class="copy-button">
+                                <i class="bi bi-files"></i>
+                                Copy
+                            </button>
+                        </div>   
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                            <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine3}</p>
+                            <button type="copy" class="copy-button">
+                                <i class="bi bi-files"></i>
+                                Copy
+                            </button>
+                        </div>     
+                        <div class="d-flex justify-content-between align-items-center" style="width: 100%;margin-bottom:10px">
+                            <p class="mb-0" style="font-size:14px;">@${alphabetNameCombine4}</p>
+                            <button type="copy" class="copy-button">
+                                <i class="bi bi-files"></i>
+                                Copy
+                            </button>              
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
-    document.querySelector('.row.justify-content-center').appendChild(alphabetNameContainer);
+        `;
+        document.querySelector('.row.justify-content-center').appendChild(alphabetNameContainer);
     }
 
     document.querySelectorAll('.copy-button').forEach(function(button) {
@@ -486,7 +478,7 @@ document.querySelector('form.custom-form').addEventListener('submit', function(e
             var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
             // var textToCopy = event.target.previousElementSibling.innerText.slice(1);
             await navigator.clipboard.writeText(textToCopy);
-            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
+            alert('"' + textToCopy + '" ' + "is copied.");
         });
     });
 });

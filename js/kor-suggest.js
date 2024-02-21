@@ -50,6 +50,7 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
         '하': 'low',
         '희': 'happy',
         '형': 'bro',
+        '김나': 'steaming',
     }
     
     var errorOccurred = false;

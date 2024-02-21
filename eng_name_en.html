@@ -1,43 +1,29 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
     <head>
         <meta name="google-site-verification" content="_R75cfs510-bhdn-arph8VMC0RlD-_r1tfAuYsqKP1s" />
         <meta name="naver-site-verification" content="8b3ba3d680e40d2b8931d38f2e6a6b5a01febbe0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="랜덤으로 인스타그램 이름 (닉네임) 추천" />
+        <meta name="description" content="Instagram Name Generator" />
         <meta name="author" content="leedohyung28" />
         <meta name="keyword" content="인스타그램, instagram, 인스타그램 이름 추천, instagram name suggestion, instagram name suggest, 인스타그램 닉네임 추천, instagram nickname suggestion, instagram nickname suggest,
         인스타, insta, 인스타 닉 추천, insta nick suggestion, insta nick suggest, 인스타그램 닉 추천, instagram nick suggestion, instagram nick suggest,
         인스타그램 닉네임, instagram nickname, 인스타 닉네임, insta nickname, 인스타그램 이름, instagram name, 인스타 이름, insta name,
-        인스타그램 추천, instagram suggestion, instagram suggest, 인스타 추천, insta suggestion, insta suggest
+        인스타그램 추천, instagram suggestion, instagram suggest, 인스타 추천, insta suggestion, insta suggest,
         인스타 간지, 인스타 본새, 인스타 핫한 닉네임, 인스타그램 간지, 인스타그램 본새, 인스타그램 인싸 닉네임, 인스타그램 인싸 닉, 인스타 인싸 닉, 인스타 인싸 닉네임,
         인스타그램 이름 생성, instagram name generator, 인스타 이름 생성, insta name generator, 인스타그램 닉네임 생성, instagram nickname generator, 인스타 닉네임 생성, insta nick generator,
         instagram name generate, insta name generate, instagram nickname generate, insta nickname generate, instagram id generator, instagram id generate, insta id generator, insta id generate,
         인스타 아이디, 인스타 아이디 추천, 인스타 아이디 생성, 인스타그램 아이디 생성기, instagram id suggestion, instagram id suggest, insta id suggestion, instagram id suggest" />
-        <meta property="og:title" content="인스타그램 이름 추천 - 랜덤" />
-        <meta property="og:image" content="https://instanamesuggest.netlify.app/images/ins_random.jpg" />
+        <meta property="og:title" content="Instagram Name Generator" />
+        <meta property="og:image" content="https://instanamesuggest.netlify.app/images/ins_fullname.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="747" />
         <meta property="og:type" content="website" /> 
-        <meta property="og:url" content="https://instanamesuggest.netlify.app/random.html" />
-        <meta property="og:description" content="랜덤으로 인스타그램 이름(닉네임) 추천" />
-        <title>인스타그램 이름 추천 - Instagram Name Suggestion</title>
-
-        <style>
-            .keyboard:hover {
-                cursor: pointer;
-            }
-        </style>
-        <map name="image-map">
-            <area target="" onclick="addResult(this.alt)" alt="123qweasd" title="123qweasd" href="" coords="10,4,190,119" shape="rect">
-            <area target="" onclick="addResult(this.alt)" alt="asdzxc" title="asdzxc" href="" coords="8,122,220,186" shape="rect">
-            <area target="" onclick="addResult(this.alt)" alt="456ertydfgh" title="456ertydfgh" href="" coords="192,4,322,120" shape="rect">
-            <area target="" onclick="addResult(this.alt)" alt="fghcvbn" title="fghcvbn" href="" coords="222,122,353,187" shape="rect">
-            <area target="" onclick="addResult(this.alt)" alt="7890yuiophjkl" title="7890yuiophjkl" href="" coords="325,3,530,118" shape="rect">
-            <area target="" onclick="addResult(this.alt)" alt="jklnm" title="jklnm" href="" coords="356,120,530,186" shape="rect">
-        </map>
+        <meta property="og:url" content="https://instanamesuggest.netlify.app/eng_name_en.html" />
+        <meta property="og:description" content="Generate your Instagram Name (ID)" />
+        <title>Instagram Name Generator : Insta ID (Nickname) Suggestion</title>
 
         <!-- CSS FILES -->                    
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -50,36 +36,39 @@
         <main>
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
-                    <div class="row">         
+                    <div class="row">
                         <ins class="kakao_ad_area" style="display:none;"
                         data-ad-unit = "DAN-uMlCcAoEcOvQWvNI"
                         data-ad-width = "320"
                         data-ad-height = "100"></ins>
                         <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                         <div class="button-group" style="margin-bottom:0;">
-                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./random.html'">한글</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./random_en.html'">English</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./eng_name.html'">Korean</button>
+                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./eng_name_en.html'">English</button>
                         </div>
                         <div class="button-group" style="margin-top:0;">
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./index.html'">한글 이름</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./eng_name.html'">영문 이름</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./birth_info.html'">출생정보</button>
-                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./random.html'">랜덤</button>
+                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./eng_name_en.html'">Full Name</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./birth_info_en.html'">Birthday</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='./random_en.html'">Random</button>
                         </div>
                         
                         <div class="col-lg-8 col-12 mx-auto">
-                            <h1 class="text-white text-center">인스타그램 이름 추천</h1>
-                            <h6 class="text-center">랜덤으로 만들기</h6>
-                            <p class="description">원하는 아이디 생성 방법을 선택하세요</p>
+                            <h1 class="text-white text-center">Instagram Name Generator</h1>
+                            <h6 class="text-center">Made from Full Name</h6>
+                            <p class="description">Type Your Name</p>
+                            <p class="description-select">Middle name and Last name is optional</p>
 
-                            <form method="get" class="custom-form mt-4 mb-lg-0" role="search">
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <button type="button" name="word-combine" class="rand" onclick="addDropdownButtons()">단어 조합하기</button>
-                                    <button type="button" name="current-time" class="rand" onclick="combineCurrentTime()">현재 시간 활용하기</button>
-                                    <button type="button" name="beauty-word" class="rand" onclick="foreignWordChoice()">예쁜 외국어를 사용하기</button>
-                                    <button type="button" name="famous-words" class="rand" onclick="famousWords()">유명한 말 인용하기</button>
-                                    <button type="button" name="use-emoticon" class="rand" onclick="emoticonGenerator()">이모티콘 사용하기</button>
-                                    <button type="button" name="keyboard" class="rand" onclick="randKeyboard()">주먹으로 키보드 치기(랜덤)</button>
+                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                <div>
+                                    <p style="text-align:center; font-size:2.5vmin; margin-bottom:0; color:var(--white-color);"> First Name - Middle Name - Last Name</p>
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
+                                    </span>
+                                    <input name="firstname" type="eng_to_eng" class="form-control" id="firstname" aria-label="추천" required>
+                                    <input name="middlename" type="eng_to_eng" class="form-control" id="middlename" aria-label="추천">
+                                    <input name="lastname" type="eng_to_eng" class="form-control" id="lastname" aria-label="추천">
+                                    <button type="submit" class="form-control" id="Generate">Generate</button>
                                 </div>
                             </form>
                         </div>
@@ -90,7 +79,7 @@
 
             <section class="featured-section">
                 <div class="container">
-                    <div class="row justify-content-left">
+                    <div class="row justify-content-center">
                     </div>
                 </div>
             </section>
@@ -109,17 +98,12 @@
                         Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
                         Feedback: <a rel="nofollow" href="https://mail.google.com/" target="_blank">dhleee0123@gmail.com</a></p>
                     </div>
-                        
                 </div>
             </div>
         </footer>
         <!-- JAVASCRIPT FILES -->
         <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/random-word-combine.js"></script>
-        <script src="js/random-current-time.js"></script>
-        <script src="js/random-foreign.js"></script>
-        <script src="js/random-words.js"></script>
-        <script src="js/random-emoticon.js"></script>
-        <script src="js/random-keyboard.js"></script>
+        <script src="js/eng-suggest-eng.js"></script>
+        
     </body>
 </html>
