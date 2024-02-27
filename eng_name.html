@@ -6,16 +6,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="영문명으로 인스타그램 이름 (닉네임) 추천" />
+        
         <meta name="author" content="leedohyung28" />
-        <meta name="keyword" content="인스타그램, instagram, 인스타그램 이름 추천, instagram name suggestion, instagram name suggest, 인스타그램 닉네임 추천, instagram nickname suggestion, instagram nickname suggest,
-        인스타, insta, 인스타 닉 추천, insta nick suggestion, insta nick suggest, 인스타그램 닉 추천, instagram nick suggestion, instagram nick suggest,
-        인스타그램 닉네임, instagram nickname, 인스타 닉네임, insta nickname, 인스타그램 이름, instagram name, 인스타 이름, insta name,
-        인스타그램 추천, instagram suggestion, instagram suggest, 인스타 추천, insta suggestion, insta suggest
-        인스타 간지, 인스타 본새, 인스타 핫한 닉네임, 인스타그램 간지, 인스타그램 본새, 인스타그램 인싸 닉네임, 인스타그램 인싸 닉, 인스타 인싸 닉, 인스타 인싸 닉네임,
-        인스타그램 이름 생성, instagram name generator, 인스타 이름 생성, insta name generator, 인스타그램 닉네임 생성, instagram nickname generator, 인스타 닉네임 생성, insta nick generator,
-        instagram name generate, insta name generate, instagram nickname generate, insta nickname generate, instagram id generator, instagram id generate, insta id generator, insta id generate,
-        인스타 아이디, 인스타 아이디 추천, 인스타 아이디 생성, 인스타그램 아이디 생성기, instagram id suggestion, instagram id suggest, insta id suggestion, instagram id suggest" />
+        <meta name="keyword" content="
+        인스타그램 이름 추천,
+        인스타 이름 추천,
+        인스타 아이디,
+        인스타그램 아이디,
+        인스타 이름,
+        인스타그램 이름,
+        간지나는 인스타 아이디,
+        귀여운 인스타 아이디,
+        예쁜 인스타 아이디,
+        인스타그램 사용자 이름
+        " />
         <meta property="og:title" content="인스타그램 이름 추천 - 영문" />
         <meta property="og:image" content="https://instanamesuggest.netlify.app/images/ins_english.jpg" />
         <meta property="og:image:width" content="1200" />
@@ -23,7 +27,19 @@
         <meta property="og:type" content="website" /> 
         <meta property="og:url" content="https://instanamesuggest.netlify.app/eng_name.html" />
         <meta property="og:description" content="영문 이름으로 인스타그램 이름(닉네임) 추천" />
-        <title>인스타그램 이름 추천 - Instagram Name Suggestion</title>
+        <meta http-equiv="Content-Script-Type" content="Text/javascript" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1" />
+        <meta http-equiv="Title" content="인스타그램 이름 추천 사이트" />
+        <meta http-equiv="Author" content="leedohyung28" />
+        <meta http-equiv="publisher" content="leedohyung28" />
+        <meta http-equiv="Reply-To" content="dhleee0123@gmail.com" />
+        <meta http-equiv="Email" content ="dhleee0123@gmail.com" />
+        <meta name="robots" content="index, follow" />
+        <title>인스타그램 이름 추천 사이트 - 무료 이쁜 인스타 이름 만들기</title>
+        <meta name="description" content="무료로 영문명으로 인스타그램 이름 (닉네임) 추천 받기" />
+
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         <!-- CSS FILES -->                    
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,14 +59,14 @@
                         data-ad-height = "100"></ins>
                         <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                         <div class="button-group" style="margin-bottom:0;">
-                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./eng_name.html'">한글</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./eng_name_en.html'">English</button>
+                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='https://instanamesuggest.netlify.app/eng_name.html'">한글</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='https://ignamegenerator.netlify.app/'">English</button>
                         </div>
                         <div class="button-group" style="margin-top:0;">
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./index.html'">한글 이름</button>
-                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='./eng_name.html'">영문 이름</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./birth_info.html'">출생정보</button>
-                            <button class="btn btn-thirdary" type="button" onclick="location.href='./random.html'">랜덤</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='https://instanamesuggest.netlify.app/'">한글 이름</button>
+                            <button class="btn btn-thirdary" type="button" id="selected" onclick="location.href='https://instanamesuggest.netlify.app/eng_name.html'">영문 이름</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='https://instanamesuggest.netlify.app/birth_info.html'">출생정보</button>
+                            <button class="btn btn-thirdary" type="button" onclick="location.href='https://instanamesuggest.netlify.app/random.html'">랜덤</button>
                         </div>
                         
                         <div class="col-lg-8 col-12 mx-auto">
@@ -63,6 +79,7 @@
                             <p class="warning">Generate를 누를 때 마다 다른 결과가 나와요!</p>
                             <p class="warning">이름을 분리해서 입력하면 다른 결과가 나와요!</p>
                             <p class="warning">ex.chulsoo -> chul soo</p>
+                            <p class="warning" style="color:red;">저희는 사용자의 정보를 수집하지 않습니다</p>
 
                             <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                                 <div class="input-group input-group-lg">
