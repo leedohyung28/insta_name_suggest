@@ -70,8 +70,10 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                 let translatedText = await response.text();
                 let processedText = translatedText.toLowerCase().replace(/a /g, '').replace(/the /g, '').replace(/an /g, '');
                 processedText = processedText.replace(/\s/g, '').replace(/-/g, '').replace(/,/g, '').replace(/'/g, '');
+                processedText = processedText.replace(/\(.*?\)/g, '');
                 translatedNames.push(processedText);
                 if (name in replaceWords) {
+                    console.log(processedText);
                     processedText = replaceWords[name];
                 }
                 customNames.push(processedText);
@@ -92,7 +94,7 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                 powered.className = 'powered';
                 powered.innerHTML = `
                 <p style="color:var(--white-color); margin-bottom:0px; margin-right:1.5vw;">Powered By</p>
-                <img src="https://papago.naver.com/97ec80a681e94540414daf2fb855ba3b.svg" style="height: 3.5vh; width: auto;">
+                <img src="https://static.deepl.com/img/logo/deepl-logo-text-blue.svg" style="height: 3.5vh; width: auto;">
                 `;
                 document.querySelector('.row.justify-content-center').appendChild(powered);
             }
