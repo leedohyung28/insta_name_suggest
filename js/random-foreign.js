@@ -1,17 +1,19 @@
 function foreignWordChoice() {
-    var dropdownArea = document.querySelector('.featured-section .container .row');
-    dropdownArea.innerHTML = `
-    `;  // dropdownArea의 내용 초기화
-    dropdownArea.style.justifyContent = '';
+  var dropdownArea = document.querySelector(
+    ".featured-section .container .row"
+  );
+  dropdownArea.innerHTML = `
+    `; // dropdownArea의 내용 초기화
+  dropdownArea.style.justifyContent = "";
 
-    var title = document.createElement('h6');
-    title.innerText = '언어를 선택해주세요';
-    title.style.color = 'white';
-    title.style.textAlign = 'center';
-    dropdownArea.appendChild(title);
+  var title = document.createElement("h6");
+  title.innerText = "언어를 선택해주세요";
+  title.style.color = "white";
+  title.style.textAlign = "center";
+  dropdownArea.appendChild(title);
 
-    var languageSelectArea = document.createElement('div')
-    languageSelectArea.innerHTML = `
+  var languageSelectArea = document.createElement("div");
+  languageSelectArea.innerHTML = `
     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-1" role="search">
         <div class="input-group input-group-lg">
             <span class="input-group-text" id="basic-addon1">&#127759
@@ -23,175 +25,54 @@ function foreignWordChoice() {
         </div>
     </form>
     `;
-    document.querySelector('.row.justify-content-left').appendChild(languageSelectArea);
+  document
+    .querySelector(".row.justify-content-left")
+    .appendChild(languageSelectArea);
 
-    var beautyFrench = [
-        ['champignon', 'champignon: 버섯'],
-        ['diamant', 'diamant: 다이아몬드'],
-        ['baguette', 'baguette: 바게트'],
-        ['cerise', 'cerise: 체리'],
-        ['garcon', 'garcon: 소년'],
-        ['calin', 'calin: 포옹'],
-        ['aube', 'aube: 새벽'],
-        ['adieu', 'adieu: 안녕'],
-        ['chapeau', 'chapeau: 모자']
-        ['chouchou', 'chouchou: 귀염둥이'],
-        ['copain', 'copain: 친구'],
-        ['enfant', 'enfant: 어린이'],
-        ['ballon', 'ballon: 공'],
-        ['amitie', 'amitie: 우정'],
-        ['abeille','abeille: 꿀벌'],
-        ['belle', 'belle: 미인'],
-        ['bebe', 'bebe: 아기'],
-        ['etoile', 'etoile: 별'],
-        ['amour', 'amour: 사랑'],
-        ['chiot', 'chiot: 강아지'],
-        ['croissant', 'croissant: 초승달'],
-        ['fee', 'fee: 요정'],
-        ['ange', 'ange: 천사'],
-        ['clair', 'clair: 밝은'],
-        ['celine', 'celine: 하늘'],
-        ['blanche', 'blanche: 하얀색'],
-        ['avenir', 'avenir: 미래']
-    ]
-    var beautyItalian = [
-        ['amante', 'amante: 연인'],
-        ['arancia', 'arancia: 오렌지'],
-        ['aroma', 'aroma: 향기'],
-        ['albero', 'albero: 나무'],
-        ['amore', 'amore: 사랑'],
-        ['anima', 'anima: 영혼'],
-        ['angelo', 'angelo: 천사'],
-        ['bianco', 'bianco: 하얀색'],
-        ['bambola', 'bambola: 인형'],
-        ['bellezza', 'bellezza: 아름다움'],
-        ['bacio', 'bacio: 키스'],
-        ['caffe', 'caffe: 커피'],
-        ['cioccolato', 'cioccolato: 초콜렛'],
-        ['carino', 'carino: 예쁜'],
-        ['cielo', 'cielo: 하늘'],
-        ['casa', 'casa: 집'],
-        ['conto', 'conto: 영수증'],
-        ['dolce', 'dolce: 달콤한'],
-        ['dono', 'dono: 선물'],
-        ['elfo', 'elfo: 요정'],
-        ['fragola', 'fragoloa: 딸기'],
-        ['fortuna', 'fortuna: 행운'],
-        ['folletto', 'folletto: 요정'],
-        ['fresca', 'fresca: 상큼한'],
-        ['forza', 'forza: 힘'],
-        ['grazia', 'grazia: 매력'],
-        ['gioia', 'gioia: 기쁨'],
-        ['gioiello', 'gioiello: 보석'],
-        ['lieto', 'lieto: 행복한'],
-        ['liberta', 'liberta: 자유'],
-        ['luna', 'luna: 달'],
-        ['luce', 'luce: 빛'],
-        ['ora', 'ora: 시간'],
-        ['onda', 'onda: 파도'],
-        ['purita', 'purita: 순수'],
-        ['piccolo', 'piccolo: 작은'],
-        ['piovere', 'piovere: 비'],
-        ['regalo', 'regalo: 선물'],
-        ['rosso', 'rosso: 빨강'],
-        ['sole', 'sole: 태양'],
-        ['sogno', 'sogno: 꿈'],
-    ]
-    var beautySpanish = [
-        ['amanecer', 'amanecer: 새벽'],
-        ['amistad', 'amistad: 우정'],
-        ['amor', 'amor: 사랑'],
-        ['arbol', 'arbol: 나무'],
-        ['boda', 'boda: 결혼'],
-        ['bosque', 'bosque: 숲'],
-        ['castillo', 'castillo: 성'],
-        ['coche', 'coche: 자동차'],
-        ['dios', 'dios: 신'],
-        ['felicidad', 'felicidad: 행복함'],
-        ['fragancia', 'fragancia: 향기'],
-        ['gracia', 'gracia: 은총'],
-        ['isla', 'isla: 섬'],
-        ['joya', 'joya: 보석'],
-        ['navidad', 'navidad: 크리스마스'],
-        ['nino', 'nino: 소년'],
-        ['nina', 'nina: 소녀'],
-        ['ojo', 'ojo: 눈'],
-        ['recuerdo', 'recuerdo: 기억'],
-        ['salud', 'salud: 건강'],
-        ['senorita', 'senorita: 아가씨'],
-        ['sol', 'sol: 태양'],
-        ['sueno', 'sueno: 꿈'],
-        ['vela', 'vela: 돛'],
-        ['verano', 'verano: 여름'],
-    ]
-    var beautyHebrian = [
-        ['gath', 'gath: 복'],
-        ['gadi', 'gadi: 행운'],
-        ['carmel', 'carmel: 동산'],
-        ['gloria', 'gloria: 영광'],
-        ['gomer', 'gomer: 완성'],
-        ['cyrus', 'cyrus: 태양'],
-        ['nathan', 'nathan: 선물'],
-        ['ner', 'ner: 등불'],
-        ['noah', 'noah: 휴식'],
-        ['raphu', 'raphui: 위로'],
-        ['rhoda', 'rhoda: 장미'],
-        ['lucifer', 'lucifer: 샛별'],
-        ['reu', 'reu: 친구'],
-        ['ruhamah', 'ruhamah: 귀염둥이'],
-        ['manoah', 'manoah: 휴식'],
-        ['melchi', 'melchi: 왕'],
-        ['milcah', 'milcah: 여왕'],
-        ['silla', 'silla: 생각'],
-        ['aaron', 'aaron: 고상함'],
-        ['augustus', 'augustus: 크다'],
-        ['achim', 'achim: 지혜'],
-        ['elohim', 'elohim: 능력있는 자'],
-    ]
+  var buttons = languageSelectArea.querySelectorAll("button");
+  var beautyVoca, vocaDetails;
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // 페이지 새로고침 방지
 
-    var buttons = languageSelectArea.querySelectorAll('button');
-    var beautyVoca, vocaDetails;
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // 페이지 새로고침 방지
-
-            var oldDescrip = document.querySelector('.description-container');
-            var oldDescrip_bot = document.querySelector('.description-bottom');
-            if (oldDescrip) {
-                oldDescrip.remove();
-            }
-            if (oldDescrip_bot) {
-                oldDescrip_bot.remove();
-            }
-            var descrip = document.createElement('div')
-            descrip.className = 'description-container';
-            descrip.innerHTML = `
+      var oldDescrip = document.querySelector(".description-container");
+      var oldDescrip_bot = document.querySelector(".description-bottom");
+      if (oldDescrip) {
+        oldDescrip.remove();
+      }
+      if (oldDescrip_bot) {
+        oldDescrip_bot.remove();
+      }
+      var descrip = document.createElement("div");
+      descrip.className = "description-container";
+      descrip.innerHTML = `
             <p class="description" style="margin-top:0;margin-bottom:0;">언어를 클릭할 때마다 랜덤으로 다르게 나옵니다.</p>
             <p class="description-select" style="margin-bottom:2.5vh;">Copy를 누르면 해당 닉네임을 복사할 수 있습니다.</p>
             `;
-            document.querySelector('.row.justify-content-left').appendChild(descrip);
+      document.querySelector(".row.justify-content-left").appendChild(descrip);
 
-            var descrip_bottom = document.createElement('div')
-            descrip_bottom.className = 'description-bottom';
-            descrip_bottom.innerHTML = `
+      var descrip_bottom = document.createElement("div");
+      descrip_bottom.className = "description-bottom";
+      descrip_bottom.innerHTML = `
             <p class="warning" style="margin-top:0;margin-bottom:0;">이름은 20자 이하의 영어(혹은 숫자)로 입력하세요.</p>
             <p class="description">이름을 입력하고 '추가'를 선택 시 새 아이디를 추천합니다</p>
             `;
-            var exisitingVocaWithName = document.getElementById('vocaWithName');
-            if (exisitingVocaWithName) {
-                exisitingVocaWithName.remove();
-            }
-            var existingAdditionalInputArea = document.getElementById('additionalInput');
-            if (existingAdditionalInputArea) {
-                existingAdditionalInputArea.remove();
-            }
-            var exisitingBeautyVoca = document.getElementById('beautyVoca');
-            if (exisitingBeautyVoca) {
-                exisitingBeautyVoca.remove();
-            }
-            var additionalInputArea = document.createElement('div')
-            additionalInputArea.id = 'additionalInput'; // 고유한 id값 설정
-            additionalInputArea.innerHTML = `
+      var exisitingVocaWithName = document.getElementById("vocaWithName");
+      if (exisitingVocaWithName) {
+        exisitingVocaWithName.remove();
+      }
+      var existingAdditionalInputArea =
+        document.getElementById("additionalInput");
+      if (existingAdditionalInputArea) {
+        existingAdditionalInputArea.remove();
+      }
+      var exisitingBeautyVoca = document.getElementById("beautyVoca");
+      if (exisitingBeautyVoca) {
+        exisitingBeautyVoca.remove();
+      }
+      var additionalInputArea = document.createElement("div");
+      additionalInputArea.id = "additionalInput"; // 고유한 id값 설정
+      additionalInputArea.innerHTML = `
             <form method="get" class="custom-form pt-2 mb-lg-0 mb-5" role="search">
                     <div class="input-group input-group-lg">
                     <span class="input-group-text bi-search" id="basic-addon1">
@@ -203,30 +84,30 @@ function foreignWordChoice() {
             </form>
             `;
 
-            var randomIndex;
-            
-            if (button === buttons[0]) {
-                randomIndex = Math.floor(Math.random() * beautyFrench.length);
-                beautyVoca = beautyFrench[randomIndex][0];
-                vocaDetails = beautyFrench[randomIndex][1];
-            } else if (button === buttons[1]) {
-                randomIndex = Math.floor(Math.random() * beautyItalian.length);
-                beautyVoca = beautyItalian[randomIndex][0];
-                vocaDetails = beautyItalian[randomIndex][1];
-            } else if (button === buttons[2]) {
-                randomIndex = Math.floor(Math.random() * beautySpanish.length);
-                beautyVoca = beautySpanish[randomIndex][0];
-                vocaDetails = beautySpanish[randomIndex][1];
-            } else if (button === buttons[3]) {
-                randomIndex = Math.floor(Math.random() * beautyHebrian.length);
-                beautyVoca = beautyHebrian[randomIndex][0];
-                vocaDetails = beautyHebrian[randomIndex][1];
-            }
+      var randomIndex;
 
-            var beautyVocaContainer = document.createElement('div');
-            beautyVocaContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-            beautyVocaContainer.id = 'beautyVoca';
-            beautyVocaContainer.innerHTML = `
+      if (button === buttons[0]) {
+        randomIndex = Math.floor(Math.random() * beautyFrench.length);
+        beautyVoca = beautyFrench[randomIndex][0];
+        vocaDetails = beautyFrench[randomIndex][1];
+      } else if (button === buttons[1]) {
+        randomIndex = Math.floor(Math.random() * beautyItalian.length);
+        beautyVoca = beautyItalian[randomIndex][0];
+        vocaDetails = beautyItalian[randomIndex][1];
+      } else if (button === buttons[2]) {
+        randomIndex = Math.floor(Math.random() * beautySpanish.length);
+        beautyVoca = beautySpanish[randomIndex][0];
+        vocaDetails = beautySpanish[randomIndex][1];
+      } else if (button === buttons[3]) {
+        randomIndex = Math.floor(Math.random() * beautyHebrian.length);
+        beautyVoca = beautyHebrian[randomIndex][0];
+        vocaDetails = beautyHebrian[randomIndex][1];
+      }
+
+      var beautyVocaContainer = document.createElement("div");
+      beautyVocaContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+      beautyVocaContainer.id = "beautyVoca";
+      beautyVocaContainer.innerHTML = `
             <div class="new-custom-block bg-white shadow-lg">
                 <div class="d-flex">
                     <div>
@@ -244,53 +125,66 @@ function foreignWordChoice() {
                 </div>
             </div>
             `;
-            document.querySelector('.row.justify-content-left').appendChild(beautyVocaContainer);
-            document.querySelector('.row.justify-content-left').appendChild(descrip_bottom);
-            document.querySelector('.row.justify-content-left').appendChild(additionalInputArea);
-            document.querySelectorAll('.copy-button').forEach(function(button) {
-                button.addEventListener('click', async function(event) {
-                    var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
-                    await navigator.clipboard.writeText(textToCopy);
-                    alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
-                });
-            });
+      document
+        .querySelector(".row.justify-content-left")
+        .appendChild(beautyVocaContainer);
+      document
+        .querySelector(".row.justify-content-left")
+        .appendChild(descrip_bottom);
+      document
+        .querySelector(".row.justify-content-left")
+        .appendChild(additionalInputArea);
+      document.querySelectorAll(".copy-button").forEach(function (button) {
+        button.addEventListener("click", async function (event) {
+          var textToCopy = event.target.parentElement
+            .querySelector(".mb-0")
+            .innerText.slice(1);
+          await navigator.clipboard.writeText(textToCopy);
+          alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
+        });
+      });
 
-
-            var addButton = additionalInputArea.querySelector('button[id="add"]');
-            addButton.addEventListener('click', function(event) {
-                var name = additionalInputArea.querySelector('#additionalName').value.toLowerCase().split(' ').join('');
-                var isAlphanumeric = /^[a-z0-9\s]*$/i.test(name);
-                var isValidLength = name.length <= 20;
-                if (!isAlphanumeric || !isValidLength) {
-                    alert("20자 이내의 알파벳(혹은 숫자)로 이루어진 문자열이어야 합니다.");
-                    return;
-                }
-                if (name) {
-                    var exisitingVocaWithName = document.getElementById('vocaWithName');
-                    if (exisitingVocaWithName) {
-                        exisitingVocaWithName.remove();
-                    }
-                    var exisitingBeautyVoca = document.getElementById('beautyVoca');
-                    if (exisitingBeautyVoca) {
-                        exisitingBeautyVoca.remove();
-                    }
-                    if (existingAdditionalInputArea) {
-                        existingAdditionalInputArea.remove();
-                    }
-                    var existingDescript = document.getElementById('description-bottom');
-                    if (existingDescript) {
-                        existingDescript.remove();
-                    }
-                    var withName1 = beautyVoca + name;
-                    var withName2 = beautyVoca + '.' + name;
-                    var withName3 = beautyVoca + '_' + name;
-                    var withName4 = name + beautyVoca;
-                    var withName5 = name + '.' + beautyVoca;
-                    var withName6 = name + '_' + beautyVoca;
-                    var vocaWithNameContainer = document.createElement('div');
-                    vocaWithNameContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-                    vocaWithNameContainer.id = 'vocaWithName';
-                    vocaWithNameContainer.innerHTML = `
+      var addButton = additionalInputArea.querySelector('button[id="add"]');
+      addButton.addEventListener("click", function (event) {
+        var name = additionalInputArea
+          .querySelector("#additionalName")
+          .value.toLowerCase()
+          .split(" ")
+          .join("");
+        var isAlphanumeric = /^[a-z0-9\s]*$/i.test(name);
+        var isValidLength = name.length <= 20;
+        if (!isAlphanumeric || !isValidLength) {
+          alert(
+            "20자 이내의 알파벳(혹은 숫자)로 이루어진 문자열이어야 합니다."
+          );
+          return;
+        }
+        if (name) {
+          var exisitingVocaWithName = document.getElementById("vocaWithName");
+          if (exisitingVocaWithName) {
+            exisitingVocaWithName.remove();
+          }
+          var exisitingBeautyVoca = document.getElementById("beautyVoca");
+          if (exisitingBeautyVoca) {
+            exisitingBeautyVoca.remove();
+          }
+          if (existingAdditionalInputArea) {
+            existingAdditionalInputArea.remove();
+          }
+          var existingDescript = document.getElementById("description-bottom");
+          if (existingDescript) {
+            existingDescript.remove();
+          }
+          var withName1 = beautyVoca + name;
+          var withName2 = beautyVoca + "." + name;
+          var withName3 = beautyVoca + "_" + name;
+          var withName4 = name + beautyVoca;
+          var withName5 = name + "." + beautyVoca;
+          var withName6 = name + "_" + beautyVoca;
+          var vocaWithNameContainer = document.createElement("div");
+          vocaWithNameContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+          vocaWithNameContainer.id = "vocaWithName";
+          vocaWithNameContainer.innerHTML = `
                     <div class="new-custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -350,46 +244,63 @@ function foreignWordChoice() {
                         </div>
                     </div>
                     `;
-                    descrip_bottom.innerHTML = `
+          descrip_bottom.innerHTML = `
                     <p class="description">'Reset'을 선택하면 원래대로 돌아옵니다.</p>
                     `;
-                    document.querySelector('.row.justify-content-left').appendChild(vocaWithNameContainer);
-                    document.querySelector('.row.justify-content-left').appendChild(descrip_bottom);
-                    document.querySelector('.row.justify-content-left').appendChild(additionalInputArea);
-                    document.querySelectorAll('.copy-button').forEach(function(button) {
-                        button.addEventListener('click', async function(event) {
-                            var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
-                            await navigator.clipboard.writeText(textToCopy);
-                            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
-                        });
-                    });
-                    };
+          document
+            .querySelector(".row.justify-content-left")
+            .appendChild(vocaWithNameContainer);
+          document
+            .querySelector(".row.justify-content-left")
+            .appendChild(descrip_bottom);
+          document
+            .querySelector(".row.justify-content-left")
+            .appendChild(additionalInputArea);
+          document.querySelectorAll(".copy-button").forEach(function (button) {
+            button.addEventListener("click", async function (event) {
+              var textToCopy = event.target.parentElement
+                .querySelector(".mb-0")
+                .innerText.slice(1);
+              await navigator.clipboard.writeText(textToCopy);
+              alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
             });
-            
-            var resetButton = additionalInputArea.querySelector('button[type="reset"]');
-            resetButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                var exisitingVocaWithName = document.getElementById('vocaWithName');
-                if (exisitingVocaWithName) {
-                    exisitingVocaWithName.remove();
-                }
-                if (existingAdditionalInputArea) {
-                    existingAdditionalInputArea.remove();
-                }
-                var existingDescript = document.getElementById('description-bottom');
-                if (existingDescript) {
-                    existingDescript.remove();
-                }
-                descrip_bottom.innerHTML = `
+          });
+        }
+      });
+
+      var resetButton = additionalInputArea.querySelector(
+        'button[type="reset"]'
+      );
+      resetButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        var exisitingVocaWithName = document.getElementById("vocaWithName");
+        if (exisitingVocaWithName) {
+          exisitingVocaWithName.remove();
+        }
+        if (existingAdditionalInputArea) {
+          existingAdditionalInputArea.remove();
+        }
+        var existingDescript = document.getElementById("description-bottom");
+        if (existingDescript) {
+          existingDescript.remove();
+        }
+        descrip_bottom.innerHTML = `
                 <p class="warning" style="margin-top:0;margin-bottom:0;">이름은 20자 이하의 영어(혹은 숫자)로 입력하세요.</p>
                 <p class="description">이름을 입력하고 '추가'를 선택 시 새 아이디를 추천합니다</p>
                 `;
-                var additionalNameInput = additionalInputArea.querySelector('#additionalName');
-                additionalNameInput.value = '';
-                document.querySelector('.row.justify-content-left').appendChild(beautyVocaContainer);
-                document.querySelector('.row.justify-content-left').appendChild(descrip_bottom);
-                document.querySelector('.row.justify-content-left').appendChild(additionalInputArea);
-            })
-        });
+        var additionalNameInput =
+          additionalInputArea.querySelector("#additionalName");
+        additionalNameInput.value = "";
+        document
+          .querySelector(".row.justify-content-left")
+          .appendChild(beautyVocaContainer);
+        document
+          .querySelector(".row.justify-content-left")
+          .appendChild(descrip_bottom);
+        document
+          .querySelector(".row.justify-content-left")
+          .appendChild(additionalInputArea);
+      });
     });
+  });
 }

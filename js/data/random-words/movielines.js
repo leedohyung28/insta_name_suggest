@@ -1,0 +1,28 @@
+var movieLinesLists = [
+  ["may the force be with you", "포스(힘)가 항상 함께하길", "영화 <스타워즈>"],
+  ["Hasta la vista baby", "나중에 보자", "영화 <터미네이터2: 심판의 날>"],
+  ["you talkin to me", "너 나한테 말하는 거야?", "영화 <택시 드라이버>"],
+  ["show me the money", "나에게 돈을 보여줘", "영화<제리 맥과이어>"],
+  ["i will be back", "나는 돌아올것이다", "영화 <터미네이터>"],
+  ["heres jonny", "조니가 여기있네", "영화 <샤이닝>"],
+  ["my precious", "내 보물", "영화 <반지의 제왕>"],
+  ["i feel the need for speed", "속도를 올려야 해", "영화 <탑건>"],
+  ["im the king of the world", "나는 세상의 왕이다", "영화 <타이타닉>"],
+  ["i am your father", "내가 니 아비다", "영화 <스타워즈:제국의 역습>"],
+  ["to infinity and beyond", "무한한 공간 저 너머로", "영화 <토이스토리>"],
+  ["i love you 3000", "3000만큼 사랑해", "영화 <어벤져스:엔드게임>"],
+  [
+    "i can do this all day",
+    "하루 종일 할 수도 있어",
+    "영화 <캡틴 아메리카:시빌 워>",
+  ],
+  ["i am iron man", "제가 아이언맨 입니다", "영화 <아이언맨>"],
+  ["avengers assemble", "어벤져스 어셈블", "영화 <어벤져스:엔드게임>"],
+  ["why so serious", "왜 그렇게 심각해?", "영화 <다크나이트>"],
+  ["you shall not pass", "넌 지나갈 수 없다", "영화 <반지의 제왕:반지원정대>"],
+  [
+    "jessica only child illinois chicago",
+    "제시카 외동 딸 일리노이 시카고",
+    "영화 <기생충>",
+  ],
+];

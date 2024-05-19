@@ -1,0 +1,16 @@
+var naturalWords = [
+  ["afterglow", "afterglow: 잔광, 여운"],
+  ["azure", "azure: 하늘빛의"],
+  ["crescent", "crescent: 초승달"],
+  ["droplet", "droplet: 물방울"],
+  ["galaxy", "galaxy: 은하계"],
+  ["haze", "haze: 아지랑이"],
+  ["iridescent", "iridescent: 무지개빛의"],
+  ["lucy: 빛"],
+  ["milkyway", "milkyway: 은하수"],
+  ["moonlight", "moonlight: 달빛"],
+  ["starlike", "starlike: 별 같은"],
+  ["stella", "stella: 별"],
+  ["supernova", "supernova: 초신성"],
+  ["twilight", "twilight: 황혼"],
+];

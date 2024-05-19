@@ -27,39 +27,6 @@ document
     var roman = nameInput.romanize();
     var engStr = korToEng(nameInput);
 
-    const replaceWords = {
-      김: "long",
-      한: "one",
-      신: "new",
-      안: "no",
-      홍: "red",
-      유: "u",
-      고: "go",
-      만: "10000",
-      천: "1000",
-      백: "100",
-      십: "10",
-      구: "9",
-      팔: "8",
-      칠: "7",
-      육: "6",
-      오: "5",
-      사: "4",
-      삼: "3",
-      이: "2",
-      일: "1",
-      원: "1",
-      공: "0",
-      영: "0",
-      진: "lose",
-      간: "gone",
-      설: "snow",
-      하: "low",
-      희: "happy",
-      형: "bro",
-      김나: "steaming",
-    };
-
     var errorOccurred = false;
 
     for (let i = result.length - 1; i >= 0; i--) {
@@ -352,35 +319,6 @@ function splitAll(s) {
   return result;
 }
 function korToEng(str) {
-  const keyboardMapKorToEng = {
-    ㅂ: "q",
-    ㅈ: "w",
-    ㄷ: "e",
-    ㄱ: "r",
-    ㅅ: "t",
-    ㅛ: "y",
-    ㅕ: "u",
-    ㅑ: "i",
-    ㅐ: "o",
-    ㅔ: "p",
-    ㅁ: "a",
-    ㄴ: "s",
-    ㅇ: "d",
-    ㄹ: "f",
-    ㅎ: "g",
-    ㅗ: "h",
-    ㅓ: "j",
-    ㅏ: "k",
-    ㅣ: "l",
-    ㅋ: "z",
-    ㅌ: "x",
-    ㅊ: "c",
-    ㅍ: "v",
-    ㅠ: "b",
-    ㅜ: "n",
-    ㅡ: "m",
-  };
-
   let result = "";
   var korStr = Hangul.disassemble(str);
   for (let i = 0; i < korStr.length; i++) {

@@ -1,0 +1,17 @@
+var colors = [
+  ["red", "red : 빨강"],
+  ["orange", "orange : 주황"],
+  ["yellow", "yellow : 노랑"],
+  ["green", "green : 초록"],
+  ["blue", "blue : 파랑"],
+  ["purple", "purple : 보라"],
+  ["black", "black : 검정"],
+  ["beige", "beige : 베이지"],
+  ["coral", "coral : 적황"],
+  ["gold", "gold : 금색"],
+  ["pink", "pink : 분홍"],
+  ["indigo", "indigo : 남색"],
+  ["navy", "navy : 남색"],
+  ["silver", "silver : 은색"],
+  ["violet", "violet : 보랏빛"],
+];
