@@ -73,7 +73,9 @@ document
         let name = names[j];
         try {
           let response = await fetch(
-            `http://127.0.0.1:8080/translate?name=${encodeURIComponent(name)}`
+            `https://port-0-insta-name-suggest-abq3c52alsd1wikh.sel5.cloudtype.app/translate?name=${encodeURIComponent(
+              name
+            )}`
           );
           let translatedText = await response.text();
           let processedText = translatedText
