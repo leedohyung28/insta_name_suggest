@@ -1,111 +1,131 @@
-document.querySelector('form.custom-form').addEventListener('submit', async function(event) {
+document
+  .querySelector("form.custom-form")
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
-    
-    var containers = document.querySelectorAll('.row.justify-content-center .col-lg-4.col-12.mb-4.mb-lg-0');
-    containers.forEach(function(container) {
-        container.remove();
+
+    var containers = document.querySelectorAll(
+      ".row.justify-content-center .col-lg-4.col-12.mb-4.mb-lg-0"
+    );
+    containers.forEach(function (container) {
+      container.remove();
     }); // 기존의 container 삭제
 
-    var nameInput = document.querySelector('#korName').value.split(' ').join(''); // 입력 받은 이름
-    
+    var nameInput = document
+      .querySelector("#korName")
+      .value.split(" ")
+      .join(""); // 입력 받은 이름
+
     var isKorean = /^[가-힣\s]*$/.test(nameInput);
     var isValidLength = nameInput.length <= 5;
 
     if (!isKorean || !isValidLength) {
-        alert("이름은 한글 5자 이내로 입력해주세요.");
-        return;
+      alert("이름은 한글 5자 이내로 입력해주세요.");
+      return;
     }
-    
+
     var result = splitAll(nameInput);
     var roman = nameInput.romanize();
     var engStr = korToEng(nameInput);
 
     const replaceWords = {
-        '김': 'long',
-        '한': 'one',
-        '신': 'new',
-        '안': 'no',
-        '홍': 'red',
-        '유': 'u',
-        '고': 'go',
-        '만': '10000',
-        '천': '1000',
-        '백': '100',
-        '십': '10',
-        '구': '9',
-        '팔': '8',
-        '칠': '7',
-        '육': '6',
-        '오': '5',
-        '사': '4',
-        '삼': '3',
-        '이': '2',
-        '일': '1',
-        '원': '1',
-        '공': '0',
-        '영': '0',
-        '진': 'lose',
-        '간': 'gone',  
-        '설': 'snow',
-        '하': 'low',
-        '희': 'happy',
-        '형': 'bro',
-        '김나': 'steaming',
-    }
-    
+      김: "long",
+      한: "one",
+      신: "new",
+      안: "no",
+      홍: "red",
+      유: "u",
+      고: "go",
+      만: "10000",
+      천: "1000",
+      백: "100",
+      십: "10",
+      구: "9",
+      팔: "8",
+      칠: "7",
+      육: "6",
+      오: "5",
+      사: "4",
+      삼: "3",
+      이: "2",
+      일: "1",
+      원: "1",
+      공: "0",
+      영: "0",
+      진: "lose",
+      간: "gone",
+      설: "snow",
+      하: "low",
+      희: "happy",
+      형: "bro",
+      김나: "steaming",
+    };
+
     var errorOccurred = false;
 
-    for(let i = result.length - 1; i >= 0; i--) {
-        let names = result[i];
-        var title = names.join('+');
-        var translatedNames = [];
-        var customNames = [];        
-        if (errorOccurred) break;
-    
-        for(let j = 0; j < names.length; j++) {
+    for (let i = result.length - 1; i >= 0; i--) {
+      let names = result[i];
+      var title = names.join("+");
+      var translatedNames = [];
+      var customNames = [];
+      if (errorOccurred) break;
 
-            let name = names[j];  
-            try {        
-                let response = await fetch(`https://port-0-insta-name-suggest-abq3c52alsd1wikh.sel5.cloudtype.app/translate?text=${encodeURIComponent(name)}`);
-                let translatedText = await response.text();
-                let processedText = translatedText.toLowerCase().replace(/a /g, '').replace(/the /g, '').replace(/an /g, '');
-                processedText = processedText.replace(/\s/g, '').replace(/-/g, '').replace(/,/g, '').replace(/'/g, '');
-                processedText = processedText.replace(/\(.*?\)/g, '');
-                translatedNames.push(processedText);
-                if (name in replaceWords) {
-                    console.log(processedText);
-                    processedText = replaceWords[name];
-                }
-                customNames.push(processedText);
-            } catch (error) {
-                errorOccurred = true;
-                alert('서버 점검중으로 papago 번역이 제공되지 않습니다.\n문의 : dhleee0123@gmail.com');
-                break;
-            }
+      for (let j = 0; j < names.length; j++) {
+        let name = names[j];
+        try {
+          let response = await fetch(
+            `http://127.0.0.1:8080/translate?name=${encodeURIComponent(name)}`
+          );
+          let translatedText = await response.text();
+          let processedText = translatedText
+            .toLowerCase()
+            .replace(/a /g, "")
+            .replace(/the /g, "")
+            .replace(/an /g, "");
+          processedText = processedText
+            .replace(/\s/g, "")
+            .replace(/-/g, "")
+            .replace(/,/g, "")
+            .replace(/'/g, "");
+          processedText = processedText.replace(/\(.*?\)/g, "");
+          translatedNames.push(processedText);
+          if (name in replaceWords) {
+            console.log(processedText);
+            processedText = replaceWords[name];
+          }
+          customNames.push(processedText);
+        } catch (error) {
+          errorOccurred = true;
+          alert(
+            "서버 점검중으로 DeepL 번역이 제공되지 않습니다.\n문의 : dhleee0123@gmail.com"
+          );
+          break;
         }
-        if (errorOccurred) break;
-        else {
-            var exisitingPowered = document.querySelector('.powered');
-            if (!exisitingPowered) {    
-                var powered = document.createElement('div');
-                powered.style.display = 'flex';
-                powered.style.alignItems = 'center';
-                powered.style.marginBottom = '2.5vh';
-                powered.className = 'powered';
-                powered.innerHTML = `
+      }
+      if (errorOccurred) break;
+      else {
+        var exisitingPowered = document.querySelector(".powered");
+        if (!exisitingPowered) {
+          var powered = document.createElement("div");
+          powered.style.display = "flex";
+          powered.style.alignItems = "center";
+          powered.style.marginBottom = "2.5vh";
+          powered.className = "powered";
+          powered.innerHTML = `
                 <p style="color:var(--white-color); margin-bottom:0px; margin-right:1.5vw;">Powered By</p>
                 <img src="https://static.deepl.com/img/logo/deepl-logo-text-blue.svg" style="height: 3.5vh; width: auto;">
                 `;
-                document.querySelector('.row.justify-content-center').appendChild(powered);
-            }
+          document
+            .querySelector(".row.justify-content-center")
+            .appendChild(powered);
         }
-        if (i === 0) {
-            var namesCombine = translatedNames.join('');
-            var customCombine = customNames.join('');
-            var translatedContainer = document.createElement('div');
-            translatedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-            if (customCombine === namesCombine) {
-                translatedContainer.innerHTML = `
+      }
+      if (i === 0) {
+        var namesCombine = translatedNames.join("");
+        var customCombine = customNames.join("");
+        var translatedContainer = document.createElement("div");
+        translatedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+        if (customCombine === namesCombine) {
+          translatedContainer.innerHTML = `
                     <div class="custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -121,9 +141,8 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                         </div>
                     </div>
                 `;
-            }
-            else {
-                translatedContainer.innerHTML = `
+        } else {
+          translatedContainer.innerHTML = `
                     <div class="custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -146,12 +165,14 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                         </div>
                     </div>
                 `;
-            }
-            document.querySelector('.row.justify-content-center').appendChild(translatedContainer);
-            if (roman !== namesCombine) {
-                var romanizedContainer = document.createElement('div');
-                romanizedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-                romanizedContainer.innerHTML = `
+        }
+        document
+          .querySelector(".row.justify-content-center")
+          .appendChild(translatedContainer);
+        if (roman !== namesCombine) {
+          var romanizedContainer = document.createElement("div");
+          romanizedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+          romanizedContainer.innerHTML = `
                     <div class="custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -166,19 +187,20 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                             </div>
                         </div>
                     </div>
-                `;                    
-                document.querySelector('.row.justify-content-center').appendChild(romanizedContainer);
-            }
+                `;
+          document
+            .querySelector(".row.justify-content-center")
+            .appendChild(romanizedContainer);
         }
-        else {
-            var namesCombine1 = translatedNames.join('');
-            var namesCombine2 = translatedNames.join('_');
-            var namesCombine3 = translatedNames.join('.');
-            var customCombine1 = customNames.join('');
-            var translatedContainer = document.createElement('div');
-            translatedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
-            if (namesCombine1 === customCombine1) {
-                translatedContainer.innerHTML = `
+      } else {
+        var namesCombine1 = translatedNames.join("");
+        var namesCombine2 = translatedNames.join("_");
+        var namesCombine3 = translatedNames.join(".");
+        var customCombine1 = customNames.join("");
+        var translatedContainer = document.createElement("div");
+        translatedContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
+        if (namesCombine1 === customCombine1) {
+          translatedContainer.innerHTML = `
                     <div class="custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -207,12 +229,11 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                             </div>
                         </div>
                     </div>
-                `;  
-            }
-            else {
-                var customCombine2 = customNames.join('_');
-                var customCombine3 = customNames.join('.');
-                translatedContainer.innerHTML = `
+                `;
+        } else {
+          var customCombine2 = customNames.join("_");
+          var customCombine3 = customNames.join(".");
+          translatedContainer.innerHTML = `
                     <div class="custom-block bg-white shadow-lg">
                         <div class="d-flex">
                             <div>
@@ -262,12 +283,14 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                             </div>
                         </div>
                     </div>
-                `;  
-            }             
-            document.querySelector('.row.justify-content-center').appendChild(translatedContainer);
+                `;
         }
-    };
-    var korToEngContainer = document.createElement('div');
+        document
+          .querySelector(".row.justify-content-center")
+          .appendChild(translatedContainer);
+      }
+    }
+    var korToEngContainer = document.createElement("div");
     korToEngContainer.className = "col-lg-4 col-12 mb-4 mb-lg-0";
     korToEngContainer.innerHTML = `
         <div class="custom-block bg-white shadow-lg">
@@ -284,59 +307,85 @@ document.querySelector('form.custom-form').addEventListener('submit', async func
                 </div>
             </div>
         </div>
-    `;  
-    document.querySelector('.row.justify-content-center').appendChild(korToEngContainer);
-                 
+    `;
+    document
+      .querySelector(".row.justify-content-center")
+      .appendChild(korToEngContainer);
 
-    document.querySelectorAll('.copy-button').forEach(function(button) {
-        button.addEventListener('click', async function(event) {
-            var textToCopy = event.target.parentElement.querySelector('.mb-0').innerText.slice(1);
-            await navigator.clipboard.writeText(textToCopy);
-            alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
-        });
+    document.querySelectorAll(".copy-button").forEach(function (button) {
+      button.addEventListener("click", async function (event) {
+        var textToCopy = event.target.parentElement
+          .querySelector(".mb-0")
+          .innerText.slice(1);
+        await navigator.clipboard.writeText(textToCopy);
+        alert('"' + textToCopy + '" ' + "가 복사되었습니다.");
+      });
     });
-});
+  });
 
 function splitString(s, parts = 1) {
-    const length = s.length;
-    if(parts === 1) {
-        return [[s]];
-    } else if(length === parts) {
-        return [s.split('')];
-    } else {
-        let result = [];
-        for(let i = 1; i < length - parts + 2; i++) {
-            let left = s.substring(0, i);
-            let right = s.substring(i);
-            for(let rest of splitString(right, parts - 1)) {
-                result.push([left].concat(rest));
-            }
-        }
-        return result;
+  const length = s.length;
+  if (parts === 1) {
+    return [[s]];
+  } else if (length === parts) {
+    return [s.split("")];
+  } else {
+    let result = [];
+    for (let i = 1; i < length - parts + 2; i++) {
+      let left = s.substring(0, i);
+      let right = s.substring(i);
+      for (let rest of splitString(right, parts - 1)) {
+        result.push([left].concat(rest));
+      }
     }
+    return result;
+  }
 }
 function splitAll(s) {
-    const length = s.length;
-    let result = [];
-    for(let parts = 1; parts <= length; parts++) {
-        result = result.concat(splitString(s, parts));
-    }
-    return result;
+  const length = s.length;
+  let result = [];
+  for (let parts = 1; parts <= length; parts++) {
+    result = result.concat(splitString(s, parts));
+  }
+  return result;
 }
 function korToEng(str) {
-    const keyboardMapKorToEng = {
-        "ㅂ": "q", "ㅈ": "w", "ㄷ": "e", "ㄱ": "r", "ㅅ": "t", "ㅛ": "y", "ㅕ": "u", "ㅑ": "i", "ㅐ": "o", "ㅔ": "p",
-        "ㅁ": "a", "ㄴ": "s", "ㅇ": "d", "ㄹ": "f", "ㅎ": "g", "ㅗ": "h", "ㅓ": "j", "ㅏ": "k", "ㅣ": "l",
-        "ㅋ": "z", "ㅌ": "x", "ㅊ": "c", "ㅍ": "v", "ㅠ": "b", "ㅜ": "n", "ㅡ": "m"
-    }
+  const keyboardMapKorToEng = {
+    ㅂ: "q",
+    ㅈ: "w",
+    ㄷ: "e",
+    ㄱ: "r",
+    ㅅ: "t",
+    ㅛ: "y",
+    ㅕ: "u",
+    ㅑ: "i",
+    ㅐ: "o",
+    ㅔ: "p",
+    ㅁ: "a",
+    ㄴ: "s",
+    ㅇ: "d",
+    ㄹ: "f",
+    ㅎ: "g",
+    ㅗ: "h",
+    ㅓ: "j",
+    ㅏ: "k",
+    ㅣ: "l",
+    ㅋ: "z",
+    ㅌ: "x",
+    ㅊ: "c",
+    ㅍ: "v",
+    ㅠ: "b",
+    ㅜ: "n",
+    ㅡ: "m",
+  };
 
-    let result = "";
-    var korStr = Hangul.disassemble(str);
-    for(let i = 0; i < korStr.length; i++) {
-        let char = korStr[i]
-        if(keyboardMapKorToEng[char]) {
-            result += keyboardMapKorToEng[char];
-        }
+  let result = "";
+  var korStr = Hangul.disassemble(str);
+  for (let i = 0; i < korStr.length; i++) {
+    let char = korStr[i];
+    if (keyboardMapKorToEng[char]) {
+      result += keyboardMapKorToEng[char];
     }
-    return result;
+  }
+  return result;
 }
