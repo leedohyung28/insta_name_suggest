@@ -1,4 +1,4 @@
-import { convertKoreanKeyboard } from "keyboard-korean-converter";
+import { convertKoreanKeyboard } from "https://cdn.jsdelivr.net/npm/keyboard-korean-converter";
 
 document
   .querySelector("form.custom-form")
