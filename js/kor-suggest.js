@@ -1,3 +1,5 @@
+import { convertKoreanKeyboard } from "keyboard-korean-converter";
+
 document
   .querySelector("form.custom-form")
   .addEventListener("submit", async function (event) {
@@ -25,7 +27,9 @@ document
 
     var result = splitAll(nameInput);
     var roman = nameInput.romanize();
-    var engStr = korToEng(nameInput);
+    var engStr = convertKoreanKeyboard(nameInput);
+
+    // var engStr = korToEng(nameInput);
 
     var errorOccurred = false;
 

@@ -4,7 +4,8 @@
     "deepl-node": "^1.13.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "hangul-js": "^0.2.6"
+    "hangul-js": "^0.2.6",
+    "keyboard-korean-converter": "^0.2.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
