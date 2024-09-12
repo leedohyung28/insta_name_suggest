@@ -1,4 +1,8 @@
-import { convertKoreanKeyboard } from "https://cdn.jsdelivr.net/npm/keyboard-korean-converter";
+import {
+  convertKoreanKeyboard,
+  convertKeyboard,
+  convertEnglishKeyboard,
+} from "https://cdn.jsdelivr.net/npm/keyboard-korean-converter";
 
 document
   .querySelector("form.custom-form")
@@ -27,7 +31,14 @@ document
 
     var result = splitAll(nameInput);
     var roman = nameInput.romanize();
+
+    console.log("Before : ", nameInput);
+
     var engStr = convertKoreanKeyboard(nameInput);
+
+    console.log("After :", engStr);
+    console.log("english keyboard : ", convertEnglishKeyboard(nameInput));
+    console.log("keyboard : ", convertKeyboard(nameInput));
 
     // var engStr = korToEng(nameInput);
 
@@ -62,7 +73,6 @@ document
           processedText = processedText.replace(/\(.*?\)/g, "");
           translatedNames.push(processedText);
           if (name in replaceWords) {
-            console.log(processedText);
             processedText = replaceWords[name];
           }
           customNames.push(processedText);
