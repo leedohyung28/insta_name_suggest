@@ -1,8 +1,4 @@
-import {
-  convertKoreanKeyboard,
-  convertKeyboard,
-  convertEnglishKeyboard,
-} from "https://cdn.jsdelivr.net/npm/keyboard-korean-converter";
+import * as KeyboardConverter from "https://unpkg.com/keyboard-korean-converter";
 
 document
   .querySelector("form.custom-form")
@@ -34,11 +30,14 @@ document
 
     console.log("Before : ", nameInput);
 
-    var engStr = convertKoreanKeyboard(nameInput);
+    var engStr = KeyboardConverter.convertKoreanKeyboard(nameInput);
 
     console.log("After :", engStr);
-    console.log("english keyboard : ", convertEnglishKeyboard(nameInput));
-    console.log("keyboard : ", convertKeyboard(nameInput));
+    console.log(
+      "english keyboard : ",
+      KeyboardConverter.convertEnglishKeyboard(nameInput)
+    );
+    console.log("keyboard : ", KeyboardConverter.convertKeyboard(nameInput));
 
     // var engStr = korToEng(nameInput);
 
