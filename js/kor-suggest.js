@@ -27,20 +27,8 @@ document
 
     var result = splitAll(nameInput);
     var roman = nameInput.romanize();
-    console.log("Roman : ", roman);
-    var engStr = KeyboardConverter.convertKoreanKeyboard(roman.join(""));
-    // console.log("Before : ", nameInput);
 
-    // var engStr = KeyboardConverter.convertKoreanKeyboard(nameInput);
-
-    // console.log("After :", engStr);
-    // console.log(
-    //   "english keyboard : ",
-    //   KeyboardConverter.convertEnglishKeyboard(nameInput)
-    // );
-    // console.log("keyboard : ", KeyboardConverter.convertKeyboard(nameInput));
-
-    // var engStr = korToEng(nameInput);
+    var engStr = KeyboardConverter.convertKoreanKeyboard(nameInput);
 
     var errorOccurred = false;
 
@@ -332,14 +320,14 @@ function splitAll(s) {
   }
   return result;
 }
-function korToEng(str) {
-  let result = "";
-  var korStr = Hangul.disassemble(str);
-  for (let i = 0; i < korStr.length; i++) {
-    let char = korStr[i];
-    if (keyboardMapKorToEng[char]) {
-      result += keyboardMapKorToEng[char];
-    }
-  }
-  return result;
-}
+// function korToEng(str) {
+//   let result = "";
+//   var korStr = Hangul.disassemble(str);
+//   for (let i = 0; i < korStr.length; i++) {
+//     let char = korStr[i];
+//     if (keyboardMapKorToEng[char]) {
+//       result += keyboardMapKorToEng[char];
+//     }
+//   }
+//   return result;
+// }
