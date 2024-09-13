@@ -320,14 +320,3 @@ function splitAll(s) {
   }
   return result;
 }
-// function korToEng(str) {
-//   let result = "";
-//   var korStr = Hangul.disassemble(str);
-//   for (let i = 0; i < korStr.length; i++) {
-//     let char = korStr[i];
-//     if (keyboardMapKorToEng[char]) {
-//       result += keyboardMapKorToEng[char];
-//     }
-//   }
-//   return result;
-// }

@@ -1,3 +1,5 @@
+import * as KeyboardConverter from "https://unpkg.com/keyboard-korean-converter";
+
 document
   .querySelector("form.custom-form")
   .addEventListener("submit", function (event) {
@@ -69,106 +71,11 @@ document
       .querySelector(".row.justify-content-center")
       .appendChild(birthdayCombineContainer);
 
-    var replaceMonthEnglish = {
-      "01": "jan",
-      "02": "feb",
-      "03": "mar",
-      "04": "apr",
-      "05": "may",
-      "06": "jun",
-      "07": "jul",
-      "08": "aug",
-      "09": "sep",
-      10: "oct",
-      11: "nov",
-      12: "dec",
-    };
-    var replaceMonthFrench = {
-      "01": "janv",
-      "02": "fev",
-      "03": "mars",
-      "04": "avril",
-      "05": "mai",
-      "06": "juin",
-      "07": "juil",
-      "08": "aout",
-      "09": "sept",
-      10: "oct",
-      11: "nov",
-      12: "dec",
-    };
-    var replaceMonthEspanol = {
-      "01": "enero",
-      "02": "febrero",
-      "03": "marzo",
-      "04": "abril",
-      "05": "mayo",
-      "06": "junio",
-      "07": "julio",
-      "08": "agosto",
-      "09": "septiembre",
-      10: "octubre",
-      11: "noviembre",
-      12: "diciembre",
-    };
-    var replaceBirthStone = {
-      "01": "garnet",
-      "02": "amethyst",
-      "03": "aquamarine",
-      "04": "diamond",
-      "05": "emerald",
-      "06": "pearl",
-      "07": "ruby",
-      "08": "onyx",
-      "09": "sapphire",
-      10: "opal",
-      11: "topaz",
-      12: "turquoise",
-    };
-    var stoneDetails = {
-      "01": "1월 - 석류석(Garnet): 사랑, 진실",
-      "02": "2월 - 자수정(Amethyst): 성실, 평화",
-      "03": "3월 - 아쿠아마린(Aquamarine): 용감, 총명",
-      "04": "4월 - 다이아몬드(Diamond): 행복, 영원한 사랑",
-      "05": "5월 - 에메랄드(Emerald): 행복, 행운",
-      "06": "6월 - 진주(Pearl): 아름다움, 순결",
-      "07": "7월 - 루비(Ruby): 열정, 사랑",
-      "08": "8월 - 오닉스(Onyx): 지혜, 희망",
-      "09": "9월 - 사파이어(Sapphire): 성실, 진실",
-      10: "10월 - 오팔(Opal): 사랑, 희망",
-      11: "11월 - 황옥(Topaz): 인내, 건강",
-      12: "12월 - 터키석(Turquoise): 성공, 승리",
-    };
-    var numToAlphabet = {
-      0: "p",
-      1: "q",
-      2: "w",
-      3: "e",
-      4: "r",
-      5: "t",
-      6: "y",
-      7: "u",
-      8: "i",
-      9: "o",
-    };
-    var alphabetYear = String(year)
-      .split("")
-      .map(function (num) {
-        return numToAlphabet[num];
-      })
-      .join("");
-    var alphabetMonth = String(month)
-      .split("")
-      .map(function (num) {
-        return numToAlphabet[num];
-      })
-      .join("");
-    var alphabetDay = String(day)
-      .split("")
-      .map(function (num) {
-        return numToAlphabet[num];
-      })
-      .join("");
+    var alphabetYear = KeyboardConverter.convertNumToEngKeyboard(String(year));
+    var alphabetMonth = KeyboardConverter.convertNumToEngKeyboard(
+      String(month)
+    );
+    var alphabetDay = KeyboardConverter.convertNumToEngKeyboard(String(day));
 
     var englishMonth = "";
     var frenchMonth = "";
